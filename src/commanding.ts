@@ -24,18 +24,14 @@ export class Commanding {
       .addOption(toCommanderOption(cmdOptionsGenerator.feature))
       .addOption(toCommanderOption(cmdOptionsGenerator.jsonSource))
       .addOption(toCommanderOption(cmdOptionsGenerator.docBase))
-     
+
       .action(async (options: GenerateTypedocRawOpts) => {
-        const {
-          feature,
-          jsonSource,
-          docBase,
-        } = options;
+        const { feature, jsonSource, docBase } = options;
         const generateTypedocOpts: GenerateTypedocActionOpts = {
           feature: toFeatures(feature),
           jsonSource,
           docBase,
-          ...splitDocBase(docBase)
+          ...splitDocBase(docBase),
         };
         const ctx: RunnerContext = {
           currentPath: process.cwd(),

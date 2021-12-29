@@ -31,5 +31,5 @@ const docBase: CmdOption = {
 export const cmdOptionsGenerator: CmdOptionsGeneratorTypedoc = {
   feature,
   jsonSource,
-  docBase
+  docBase,
 };

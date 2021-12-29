@@ -1,13 +1,13 @@
 import { readFile, writeFile, mkdir } from 'fs/promises';
 import { toReadmeMd } from './markdown-readme.js';
-import {
-  GenerateTypedocActionOpts,
-  RunnerContext,
-} from './model.js';
+import { GenerateTypedocActionOpts, RunnerContext } from './model.js';
+import { TypedocJson } from './typedoc-json.js';
 
-const readTypedocJson = async (): Promise<TypedocJson> => {
-    const content = await readFile('./doc.json', 'utf8');
-    return JSON.parse(content);
+const readTypedocJson = async (
+  opts: GenerateTypedocActionOpts
+): Promise<TypedocJson> => {
+  const content = await readFile(opts.jsonSource, 'utf8');
+  return JSON.parse(content);
 };
 
 const readReadme = async (): Promise<string> => {
@@ -18,19 +18,22 @@ const readReadme = async (): Promise<string> => {
   }
 };
 
-const writeReadme = async (core: GenerateTypedocActionOpts) => {
+const writeReadme = async (typedocJson: TypedocJson) => {
   const existingReadme = await readReadme();
-  const newReadme = toReadmeMd(core, existingReadme);
+  const newReadme = toReadmeMd(existingReadme, typedocJson);
   await writeFile('./README.md', newReadme, 'utf8');
 };
 
 const writeApiMd = async (opts: GenerateTypedocActionOpts) => {
-  await writeFile('./api.md', 'not yet', 'utf8');
+  await writeFile(`${opts.docBase}-api.md`, 'not yet', 'utf8');
 };
 
-
-const createDocDir = async () => {
-  await mkdir('doc', { recursive: true });
+const createDocDir = async (opts: GenerateTypedocActionOpts) => {
+  if (opts.docDirectory.length === 0) {
+    await Promise.resolve('no directory');
+  } else {
+    await mkdir(opts.docDirectory, { recursive: true });
+  }
 };
 
 export const updateAll = async (
@@ -38,8 +41,9 @@ export const updateAll = async (
   opts: GenerateTypedocActionOpts
 ) => {
   try {
-    await writeReadme(opts);
-    await createDocDir();
+    const typedocJson = await readTypedocJson(opts);
+    await writeReadme(typedocJson);
+    await createDocDir(opts);
     await writeApiMd(opts);
   } catch (err) {
     ctx.errTermFormatter({

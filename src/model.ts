@@ -1,4 +1,4 @@
-export type SupportedFeature = 'md'
+export type SupportedFeature = 'md';
 
 export interface GenerateTypedocActionOpts {
   feature: SupportedFeature[];
@@ -11,7 +11,7 @@ export interface GenerateTypedocActionOpts {
 export interface GenerateTypedocRawOpts {
   feature: string[];
   jsonSource: string;
-  docBase: string;  
+  docBase: string;
 }
 
 export interface CmdOptionsGeneratorTypedoc {
