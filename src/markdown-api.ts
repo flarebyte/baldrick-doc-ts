@@ -16,17 +16,24 @@ const parameterToString = (param: Parameter): string => {
 const functionToMdSection = (child: TypedocChild): MdSection => {
   const sourceFilename = child.sources[0]?.fileName || 'which-file.ts';
   const sourceFileLine = child.sources[0]?.line || 1;
-  const fileRef = `See ${sourceFilename}:L${sourceFileLine}`;
+  const fileRef = `See [${sourceFilename} - L${sourceFileLine}](src/${sourceFilename})`;
   const signatures = child.signatures || [];
   const [signature] = signatures;
   const params = (signature?.parameters || []).map(parameterToString);
-
   const description =
     signature?.comment?.shortText || 'fixme: Adds a description';
+  const returns = signature?.comment?.returns;
+  const functionReturn = returns ? ['### Returns', returns] : [];
 
   const section: MdSection = {
     title: `${child.name}`,
-    body: [fileRef, description, ...params].join('\n\n'),
+    body: [
+      fileRef,
+      description,
+      '### Parameters',
+      ...params,
+      ...functionReturn,
+    ].join('\n\n'),
   };
   return section;
 };
