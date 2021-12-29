@@ -22,7 +22,7 @@ const docBase: CmdOption = {
   shortFlag: 'db',
   longFlag: 'doc-base',
   description: 'Specify the base name for documentation (doc/api)',
-  defaultValue: 'api',
+  defaultValue: '',
   choices: [],
   mandatory: false,
   variadic: false,

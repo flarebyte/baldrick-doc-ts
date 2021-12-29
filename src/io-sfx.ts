@@ -1,4 +1,5 @@
 import { readFile, writeFile, mkdir } from 'fs/promises';
+import { toTypedocApiMd } from './markdown-api.js';
 import { toReadmeMd } from './markdown-readme.js';
 import { GenerateTypedocActionOpts, RunnerContext } from './model.js';
 import { TypedocJson } from './typedoc-json-model.js';
@@ -24,8 +25,12 @@ const writeReadme = async (typedocJson: TypedocJson) => {
   await writeFile('./README.md', newReadme, 'utf8');
 };
 
-const writeApiMd = async (opts: GenerateTypedocActionOpts) => {
-  await writeFile(`${opts.docBase}-api.md`, 'not yet', 'utf8');
+const writeApiMd = async (
+  opts: GenerateTypedocActionOpts,
+  typedocJson: TypedocJson
+) => {
+  const content = toTypedocApiMd(typedocJson);
+  await writeFile(`${opts.docBase}-api.md`, content, 'utf8');
 };
 
 const createDocDir = async (opts: GenerateTypedocActionOpts) => {
@@ -44,7 +49,7 @@ export const updateAll = async (
     const typedocJson = await readTypedocJson(opts);
     await writeReadme(typedocJson);
     await createDocDir(opts);
-    await writeApiMd(opts);
+    await writeApiMd(opts, typedocJson);
   } catch (err) {
     ctx.errTermFormatter({
       title: 'Generating typedoc- update error',

@@ -19,8 +19,8 @@ export class Commanding {
 
   declareGenerateAction(genAction: GenerateTypedocAction) {
     this._program
-      .command('generate')
-      .description('Generate and standardize the source code files')
+      .command('typedoc')
+      .description('Generate typedoc documentation')
       .addOption(toCommanderOption(cmdOptionsGenerator.feature))
       .addOption(toCommanderOption(cmdOptionsGenerator.jsonSource))
       .addOption(toCommanderOption(cmdOptionsGenerator.docBase))
