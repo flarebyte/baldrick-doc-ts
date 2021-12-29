@@ -47,7 +47,8 @@
     "build": "yarn reset;tsc --outDir dist",
     "ready": "yarn lint && yarn test:cov && yarn outdated",
     "norm": "npx baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT -b baldrick-doc-ts",
-    "norm:g": "baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT -b baldrick-doc-ts"
+    "norm:g": "baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT -b baldrick-doc-ts",
+    "github": "gh repo edit --delete-branch-on-merge --enable-squash-merge"
   },
   "dependencies": {},
   "devDependencies": {
