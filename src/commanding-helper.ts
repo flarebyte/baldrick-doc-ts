@@ -27,7 +27,10 @@ export const toCommanderOption = (option: CmdOption): Option => {
 
 export const splitDocBase = (
   base: string
-): { docDirectory: string; docPrefix: string } => ({
-  docDirectory: path.dirname(base),
-  docPrefix: path.basename(base),
-});
+): { docDirectory: string; docPrefix: string } =>
+  base === ''
+    ? { docDirectory: '', docPrefix: '' }
+    : {
+        docDirectory: path.dirname(base),
+        docPrefix: path.basename(base),
+      };

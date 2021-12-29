@@ -7,11 +7,12 @@ const feature: CmdOption = {
   choices: ['md'],
   mandatory: false,
   variadic: true,
+  defaultValue: ['md'],
 };
 
 const jsonSource: CmdOption = {
   shortFlag: 's',
-  longFlag: 'source',
+  longFlag: 'json-source',
   description: 'Typedoc json filename',
   defaultValue: 'doc.json',
   choices: [],
