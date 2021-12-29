@@ -1,6 +1,6 @@
-import { markdownToString } from './markdown';
-import { MdSection } from './model';
-import { Parameter, TypedocChild, TypedocJson } from './typedoc-json-model';
+import { markdownToString } from './markdown.js';
+import { MdSection } from './model.js';
+import { Parameter, TypedocChild, TypedocJson } from './typedoc-json-model.js';
 const bq = '`';
 
 const parameterToString = (param: Parameter): string => {

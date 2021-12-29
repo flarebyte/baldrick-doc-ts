@@ -30,11 +30,13 @@ const writeApiMd = async (
   typedocJson: TypedocJson
 ) => {
   const content = toTypedocApiMd(typedocJson);
-  await writeFile(`${opts.docBase}-api.md`, content, 'utf8');
+  const filename =
+    opts.docBase.length > 0 ? `${opts.docBase}-api.md` : 'api.md';
+  await writeFile(filename, content, 'utf8');
 };
 
 const createDocDir = async (opts: GenerateTypedocActionOpts) => {
-  if (opts.docDirectory.length === 0) {
+  if (opts.docDirectory.length === 0 || opts.docDirectory === '.') {
     await Promise.resolve('no directory');
   } else {
     await mkdir(opts.docDirectory, { recursive: true });
@@ -47,7 +49,9 @@ export const updateAll = async (
 ) => {
   try {
     const typedocJson = await readTypedocJson(opts);
-    await writeReadme(typedocJson);
+    if (opts.feature.length > 10) {
+      await writeReadme(typedocJson);
+    }
     await createDocDir(opts);
     await writeApiMd(opts, typedocJson);
   } catch (err) {
