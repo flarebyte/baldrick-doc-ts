@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`markdown-api should provide 1`] = `
+"# API of object-crumble
+
+> API of object-crumble
+
+
+
+## abstractObject
+
+See obj-abstractor.ts:L58
+
+Convert any object to an abstract representation of the object structure
+\`\`\`
+abstractObject({name: \\"Jane\\"})
+\`\`\`
+
+* rules: Array of \`StringAbstractionRule\`: a list of rules
+
+* prefix: \`string\`: a prefix
+
+## anyOfString
+
+See string-abstractor.ts:L6
+
+fixme: Adds a description
+
+* name: \`string\`: fixme: Adds a description
+
+* options: Array of \`string\`: fixme: Adds a description
+
+## mutateObject
+
+See obj-mutator.ts:L94
+
+fixme: Adds a description
+
+* rules: Array of \`CrumbleFieldMutation\`: fixme: Adds a description
+
+## someUrl
+
+See string-abstractor.ts:L3
+
+fixme: Adds a description
+
+* value: \`string\`: fixme: Adds a description"
+`;

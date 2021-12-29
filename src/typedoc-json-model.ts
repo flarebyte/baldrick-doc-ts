@@ -5,7 +5,7 @@ export interface TypedocJson {
   groups: Group[];
 }
 
-interface TypedocChild {
+export interface TypedocChild {
   id: number;
   name: string;
   kindString: string;
@@ -49,7 +49,7 @@ interface Signature {
   comment?: Comment;
 }
 
-interface Parameter {
+export interface Parameter {
   id: number;
   name: string;
   kind: number;
@@ -77,5 +77,3 @@ interface Group {
   kind: number;
   children: number[];
 }
-
-export const toTypedocReadmeMd = (typedocJson: TypedocJson): string => '';

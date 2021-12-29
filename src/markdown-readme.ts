@@ -1,6 +1,6 @@
 import { markdownToString, parseMarkdown } from './markdown.js';
 import { MdSection } from './model.js';
-import { TypedocJson } from './typedoc-json.js';
+import { TypedocJson } from './typedoc-json-model.js';
 
 const keepSections = (section: MdSection): boolean =>
   !['Use cases'].includes(section.title);

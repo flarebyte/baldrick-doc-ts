@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir } from 'fs/promises';
 import { toReadmeMd } from './markdown-readme.js';
 import { GenerateTypedocActionOpts, RunnerContext } from './model.js';
-import { TypedocJson } from './typedoc-json.js';
+import { TypedocJson } from './typedoc-json-model.js';
 
 const readTypedocJson = async (
   opts: GenerateTypedocActionOpts
