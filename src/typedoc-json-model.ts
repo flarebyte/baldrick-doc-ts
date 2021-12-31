@@ -14,6 +14,7 @@ export interface TypedocChild {
   type?: Type;
   defaultValue?: string;
   signatures?: Signature[];
+  comment?: Comment;
 }
 
 interface ChildFlags {

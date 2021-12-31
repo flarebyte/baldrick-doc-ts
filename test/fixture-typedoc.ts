@@ -12,10 +12,13 @@ const typedocExample = {
       kind: 32,
       kindString: 'Variable',
       flags: {},
+      comment: {
+        shortText: 'Basic mutator rules that can be used out of the box',
+      },
       sources: [
         {
           fileName: 'obj-mutator.ts',
-          line: 35,
+          line: 38,
           character: 13,
         },
       ],
@@ -53,7 +56,8 @@ const typedocExample = {
           comment: {
             shortText:
               'Convert any object to an abstract representation of the object structure\n```\nabstractObject({name: "Jane"})\n```',
-            returns: 'an abstracted object\n',
+            returns:
+              'an array of `CrumbleAbstractedValue` representing each `path` `kind` pair.\n',
           },
           parameters: [
             {
@@ -63,7 +67,8 @@ const typedocExample = {
               kindString: 'Parameter',
               flags: {},
               comment: {
-                shortText: 'a list of rules',
+                shortText:
+                  'a list of rules used to infer the kind of value of each property in the object',
               },
               type: {
                 type: 'array',
@@ -80,7 +85,8 @@ const typedocExample = {
               kindString: 'Parameter',
               flags: {},
               comment: {
-                shortText: 'a prefix',
+                shortText:
+                  'path of the object in the enclosing object, or empty if none',
               },
               type: {
                 type: 'intrinsic',
@@ -121,7 +127,7 @@ const typedocExample = {
                     type: 'array',
                     elementType: {
                       type: 'reference',
-                      name: 'CrumbleAbstractedObject',
+                      name: 'CrumbleAbstractedValue',
                     },
                   },
                 },
@@ -142,7 +148,7 @@ const typedocExample = {
       sources: [
         {
           fileName: 'string-abstractor.ts',
-          line: 6,
+          line: 19,
           character: 13,
         },
       ],
@@ -153,6 +159,10 @@ const typedocExample = {
           kind: 4096,
           kindString: 'Call signature',
           flags: {},
+          comment: {
+            shortText: 'Detect a a string from a given list of string',
+            returns: 'the `name` keyword or false\n',
+          },
           parameters: [
             {
               id: 23,
@@ -160,6 +170,9 @@ const typedocExample = {
               kind: 32768,
               kindString: 'Parameter',
               flags: {},
+              comment: {
+                shortText: 'the keyword to return if the detection happens',
+              },
               type: {
                 type: 'intrinsic',
                 name: 'string',
@@ -171,6 +184,9 @@ const typedocExample = {
               kind: 32768,
               kindString: 'Parameter',
               flags: {},
+              comment: {
+                shortText: 'a list of string that would satisfy the detection',
+              },
               type: {
                 type: 'array',
                 elementType: {
@@ -209,8 +225,17 @@ const typedocExample = {
                     },
                   ],
                   type: {
-                    type: 'intrinsic',
-                    name: 'string',
+                    type: 'union',
+                    types: [
+                      {
+                        type: 'intrinsic',
+                        name: 'string',
+                      },
+                      {
+                        type: 'literal',
+                        value: false,
+                      },
+                    ],
                   },
                 },
               ],
@@ -230,7 +255,7 @@ const typedocExample = {
       sources: [
         {
           fileName: 'obj-mutator.ts',
-          line: 94,
+          line: 104,
           character: 13,
         },
       ],
@@ -241,6 +266,11 @@ const typedocExample = {
           kind: 4096,
           kindString: 'Call signature',
           flags: {},
+          comment: {
+            shortText:
+              'Mutates an object applying a list of mutation.\nWe are using currying to provide the list of mutations rules.\nOnly a single mutation is applied to facilitate the studying of the impact.',
+            returns: 'a `CrumbleObject` representing most javascript objects\n',
+          },
           parameters: [
             {
               id: 10,
@@ -248,6 +278,10 @@ const typedocExample = {
               kind: 32768,
               kindString: 'Parameter',
               flags: {},
+              comment: {
+                shortText:
+                  'a list of rules used to infer the kind of value of each property in the object',
+              },
               type: {
                 type: 'array',
                 elementType: {
@@ -339,7 +373,7 @@ const typedocExample = {
       sources: [
         {
           fileName: 'string-abstractor.ts',
-          line: 3,
+          line: 9,
           character: 13,
         },
       ],
@@ -350,6 +384,10 @@ const typedocExample = {
           kind: 4096,
           kindString: 'Call signature',
           flags: {},
+          comment: {
+            shortText: 'Detect an url',
+            returns: 'the `url` keyword or false\n',
+          },
           parameters: [
             {
               id: 20,
@@ -357,6 +395,9 @@ const typedocExample = {
               kind: 32768,
               kindString: 'Parameter',
               flags: {},
+              comment: {
+                shortText: 'the text to check',
+              },
               type: {
                 type: 'intrinsic',
                 name: 'string',
@@ -390,6 +431,16 @@ const typedocExample = {
       title: 'Functions',
       kind: 64,
       children: [1, 21, 8, 18],
+      categories: [
+        {
+          title: 'Other',
+          children: [1, 8],
+        },
+        {
+          title: 'String abstractor',
+          children: [21, 18],
+        },
+      ],
     },
   ],
   sources: [
