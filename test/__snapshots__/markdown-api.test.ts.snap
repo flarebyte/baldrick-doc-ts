@@ -19,7 +19,7 @@ __Variables:__
 
 ## abstractObject
 
-Convert any object to an abstract representation of the object structure
+⎔ Convert any object to an abstract representation of the object structure
 \`\`\`
 abstractObject({name: \\"Jane\\"})
 \`\`\`
@@ -39,7 +39,7 @@ See [obj-abstractor.ts - L58](src/obj-abstractor.ts)
 
 ## anyOfString
 
-Detect a a string from a given list of string
+⎔ Detect a a string from a given list of string
 
 ### Parameters
 
@@ -56,7 +56,7 @@ See [string-abstractor.ts - L19](src/string-abstractor.ts)
 
 ## mutateObject
 
-Mutates an object applying a list of mutation.
+⎔ Mutates an object applying a list of mutation.
 We are using currying to provide the list of mutations rules.
 Only a single mutation is applied to facilitate the studying of the impact.
 
@@ -73,7 +73,7 @@ See [obj-mutator.ts - L104](src/obj-mutator.ts)
 
 ## someUrl
 
-Detect an url
+⎔ Detect an url
 
 ### Parameters
 

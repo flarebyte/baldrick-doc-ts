@@ -28,7 +28,7 @@ const functionToMdSection = (child: TypedocChild): MdSection => {
   const section: MdSection = {
     title: `${child.name}`,
     body: [
-      description,
+      `⎔ ${description}`,
       '### Parameters',
       ...params,
       ...functionReturn,
