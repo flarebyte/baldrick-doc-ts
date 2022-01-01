@@ -12,7 +12,7 @@ export const cmdGenerateTypedocAction: GenerateTypedocAction = async (
   await updateAll(ctx, options);
   ctx.termFormatter({
     title: 'Generated typedoc documentation',
-    detail: ['Check the generated api.md'].join('\n'),
+    detail: ['Check the generated API.md'].join('\n'),
     kind: 'info',
     format: 'default',
   });

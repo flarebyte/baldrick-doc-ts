@@ -3,6 +3,9 @@ import { GenerateTypedocActionOpts, MdSection } from './model.js';
 import { Parameter, TypedocChild, TypedocJson } from './typedoc-json-model.js';
 const bq = '`';
 
+const apiFilename = (opts: GenerateTypedocActionOpts) =>
+  opts.docBase.length > 0 ? `${opts.docBase}_API.md` : 'API.md';
+
 const parameterToString = (param: Parameter): string => {
   const { name, type, comment } = param;
   const description = comment?.shortText || 'fixme: Adds a description';
@@ -70,7 +73,7 @@ const variableToMdSection =
 const titleToRef =
   (opts: GenerateTypedocActionOpts) =>
   (section: MdSection): string =>
-    `* [${section.title}](${opts.docBase}api.md#${section.title})`;
+    `* [${section.title}](${apiFilename(opts)}#${section.title})`;
 
 export const toTypedocApiMd = (
   opts: GenerateTypedocActionOpts,
