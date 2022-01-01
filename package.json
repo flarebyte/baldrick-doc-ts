@@ -2,7 +2,7 @@
   "name": "baldrick-doc-ts",
   "description": "fixme",
   "keywords": ["cli"],
-  "version": "0.1.0",
+  "version": "0.5.0",
   "author": {
     "name": "Olivier Huin",
     "url": "https://github.com/olih"
@@ -47,7 +47,8 @@
     "build": "yarn reset;tsc --outDir dist",
     "ready": "yarn lint && yarn test:cov && yarn outdated",
     "norm": "npx baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT -b baldrick-doc-ts",
-    "norm:g": "baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT -b baldrick-doc-ts"
+    "norm:g": "baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT -b baldrick-doc-ts",
+    "github": "gh repo edit --delete-branch-on-merge --enable-squash-merge"
   },
   "dependencies": {},
   "devDependencies": {
