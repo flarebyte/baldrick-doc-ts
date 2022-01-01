@@ -1,6 +1,9 @@
 # Technical Design
 
-> 
+> Guidelines for the development of this project
+
+* This project is part of the `baldrick` suite of tools and should work in synergy with these tools.
+
 
 ## Code structure
 
