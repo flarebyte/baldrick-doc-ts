@@ -7,15 +7,15 @@ exports[`markdown-api should provide markdown for a docBase 1`] = `
 
 __Functions:__
 
-* [abstractObject](docs/my-api.md#abstractObject)
-* [anyOfString](docs/my-api.md#anyOfString)
-* [mutateObject](docs/my-api.md#mutateObject)
-* [someUrl](docs/my-api.md#someUrl)
+* [abstractObject](docs/my-_API.md#abstractObject)
+* [anyOfString](docs/my-_API.md#anyOfString)
+* [mutateObject](docs/my-_API.md#mutateObject)
+* [someUrl](docs/my-_API.md#someUrl)
 
 
 __Variables:__
 
-* [mutatorRules](docs/my-api.md#mutatorRules)
+* [mutatorRules](docs/my-_API.md#mutatorRules)
 
 ## abstractObject
 
@@ -102,15 +102,15 @@ exports[`markdown-api should provide markdown for homepage 1`] = `
 
 __Functions:__
 
-* [abstractObject](api.md#abstractObject)
-* [anyOfString](api.md#anyOfString)
-* [mutateObject](api.md#mutateObject)
-* [someUrl](api.md#someUrl)
+* [abstractObject](API.md#abstractObject)
+* [anyOfString](API.md#anyOfString)
+* [mutateObject](API.md#mutateObject)
+* [someUrl](API.md#someUrl)
 
 
 __Variables:__
 
-* [mutatorRules](api.md#mutatorRules)
+* [mutatorRules](API.md#mutatorRules)
 
 ## abstractObject
 
@@ -197,15 +197,15 @@ exports[`markdown-api should provide markdown without homepage 1`] = `
 
 __Functions:__
 
-* [abstractObject](api.md#abstractObject)
-* [anyOfString](api.md#anyOfString)
-* [mutateObject](api.md#mutateObject)
-* [someUrl](api.md#someUrl)
+* [abstractObject](API.md#abstractObject)
+* [anyOfString](API.md#anyOfString)
+* [mutateObject](API.md#mutateObject)
+* [someUrl](API.md#someUrl)
 
 
 __Variables:__
 
-* [mutatorRules](api.md#mutatorRules)
+* [mutatorRules](API.md#mutatorRules)
 
 ## abstractObject
 

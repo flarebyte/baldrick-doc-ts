@@ -16,7 +16,7 @@ const writeApiMd = async (
 ) => {
   const content = toTypedocApiMd(opts, typedocJson);
   const filename =
-    opts.docBase.length > 0 ? `${opts.docBase}-api.md` : 'api.md';
+    opts.docBase.length > 0 ? `${opts.docBase}_API.md` : 'API.md';
   await writeFile(filename, content, 'utf8');
 };
 
