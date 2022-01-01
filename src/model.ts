@@ -6,18 +6,22 @@ export interface GenerateTypedocActionOpts {
   docBase: string;
   docPrefix: string;
   docDirectory: string;
+  srcDirectory: string;
+  homepage?: string;
 }
 
 export interface GenerateTypedocRawOpts {
   feature: string[];
   jsonSource: string;
   docBase: string;
+  srcDirectory: string;
 }
 
 export interface CmdOptionsGeneratorTypedoc {
   feature: CmdOption;
   jsonSource: CmdOption;
   docBase: CmdOption;
+  srcDirectory: CmdOption;
 }
 
 export interface MdSection {

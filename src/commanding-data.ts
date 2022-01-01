@@ -28,9 +28,19 @@ const docBase: CmdOption = {
   mandatory: false,
   variadic: false,
 };
+const srcDirectory: CmdOption = {
+  shortFlag: 'sd',
+  longFlag: 'src-directory',
+  description: 'Directory of the source code that will be used for links',
+  choices: [],
+  mandatory: true,
+  variadic: false,
+  defaultValue: 'src',
+};
 
 export const cmdOptionsGenerator: CmdOptionsGeneratorTypedoc = {
   feature,
   jsonSource,
   docBase,
+  srcDirectory,
 };
