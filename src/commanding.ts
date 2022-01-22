@@ -1,11 +1,14 @@
 import { Command } from 'commander';
-import { cmdOptionsGenerator } from './commanding-data.js';
+import { cmdOptionsGenerator, cmdOptionsParser } from './commanding-data.js';
 import { splitDocBase, toCommanderOption } from './commanding-helper.js';
 import { toFeatures } from './feature-helper.js';
 import {
   GenerateTypedocAction,
   GenerateTypedocActionOpts,
   GenerateTypedocRawOpts,
+  ParseAction,
+  ParseActionOpts,
+  ParseRawOpts,
   RunnerContext,
 } from './model.js';
 import { basicFormatter, errorFormatter } from './term-formatter.js';
@@ -42,6 +45,31 @@ export class Commanding {
           errTermFormatter: errorFormatter,
         };
         await genAction(ctx, generateTypedocOpts);
+      });
+  }
+
+  declareParseAction(parseAction: ParseAction) {
+    this._program
+      .command('parse')
+      .description('Parse typescript and extract documentation')
+      .addOption(toCommanderOption(cmdOptionsParser.feature))
+      .addOption(toCommanderOption(cmdOptionsParser.docBase))
+      .addOption(toCommanderOption(cmdOptionsParser.srcDirectory))
+
+      .action(async (options: ParseRawOpts) => {
+        const { feature, docBase, srcDirectory } = options;
+        const parseOpts: ParseActionOpts = {
+          feature: toFeatures(feature),
+          docBase,
+          ...splitDocBase(docBase),
+          srcDirectory,
+        };
+        const ctx: RunnerContext = {
+          currentPath: process.cwd(),
+          termFormatter: basicFormatter,
+          errTermFormatter: errorFormatter,
+        };
+        await parseAction(ctx, parseOpts);
       });
   }
 

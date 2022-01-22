@@ -10,6 +10,14 @@ export interface GenerateTypedocActionOpts {
   homepage?: string;
 }
 
+export interface ParseActionOpts {
+  feature: SupportedFeature[];
+  docBase: string;
+  docPrefix: string;
+  docDirectory: string;
+  srcDirectory: string;
+}
+
 export interface GenerateTypedocRawOpts {
   feature: string[];
   jsonSource: string;
@@ -17,9 +25,21 @@ export interface GenerateTypedocRawOpts {
   srcDirectory: string;
 }
 
+export interface ParseRawOpts {
+  feature: string[];
+  docBase: string;
+  srcDirectory: string;
+}
+
 export interface CmdOptionsGeneratorTypedoc {
   feature: CmdOption;
   jsonSource: CmdOption;
+  docBase: CmdOption;
+  srcDirectory: CmdOption;
+}
+
+export interface CmdOptionsParser {
+  feature: CmdOption;
   docBase: CmdOption;
   srcDirectory: CmdOption;
 }
@@ -73,4 +93,9 @@ export interface RunnerContext {
 export type GenerateTypedocAction = (
   ctx: RunnerContext,
   options: GenerateTypedocActionOpts
+) => Promise<void>;
+
+export type ParseAction = (
+  ctx: RunnerContext,
+  options: ParseActionOpts
 ) => Promise<void>;

@@ -1,4 +1,8 @@
-import { CmdOption, CmdOptionsGeneratorTypedoc } from './model.js';
+import {
+  CmdOption,
+  CmdOptionsGeneratorTypedoc,
+  CmdOptionsParser,
+} from './model.js';
 
 const feature: CmdOption = {
   shortFlag: 'f',
@@ -41,6 +45,12 @@ const srcDirectory: CmdOption = {
 export const cmdOptionsGenerator: CmdOptionsGeneratorTypedoc = {
   feature,
   jsonSource,
+  docBase,
+  srcDirectory,
+};
+
+export const cmdOptionsParser: CmdOptionsParser = {
+  feature,
   docBase,
   srcDirectory,
 };

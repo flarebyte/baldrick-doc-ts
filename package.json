@@ -65,5 +65,7 @@
     "baldrick-dev-ts": "0.15.0",
     "typescript": "^4.5.4"
   },
-  "peerDependencies": {}
+  "peerDependencies": {
+    "typescript": "4.x"
+  }
 }
