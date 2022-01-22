@@ -40,13 +40,22 @@ It is recommended to add it a script in your `package.json`
 
 ### Options
 
-|     | Long flag                       | Description                                                               |
-| --- | ------------------------------- | ------------------------------------------------------------------------- |
-| -f  | --feature \[feature...]         | List of features (choices: "md", default: \["md"])                        |
-| -s  | --json-source \[jsonSource]     | Typedoc json filename (default: "doc.json")                               |
-| -db | --doc-base \[docBase]           | Specify the base name for documentation (doc/api) (default: "")           |
-| -sd | --src-directory \[srcDirectory] | Directory of the source code that will be used for links (default: "src") |
-| -h  | --help                          | display help for command                                                  |
+```bash
+Usage: baldrick-doc-ts typedoc [options]
+
+Generate typedoc documentation
+
+Options:
+  -f, --feature [feature...]           List of features (choices: "md",
+                                       default: ["md"])
+  -s, --json-source [jsonSource]       Typedoc json filename (default:
+                                       "doc.json")
+  -db, --doc-base [docBase]            Specify the base name for documentation
+                                       (doc/api) (default: "")
+  -sd, --src-directory [srcDirectory]  Directory of the source code that will
+                                       be used for links (default: "src")
+  -h, --help                           display help for command
+```
 
 ## Documentation and links
 
