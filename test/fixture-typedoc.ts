@@ -63,7 +63,7 @@ const typedocExample = {
             {
               id: 3,
               name: 'rules',
-              kind: 32768,
+              kind: 32_768,
               kindString: 'Parameter',
               flags: {},
               comment: {
@@ -81,7 +81,7 @@ const typedocExample = {
             {
               id: 4,
               name: 'prefix',
-              kind: 32768,
+              kind: 32_768,
               kindString: 'Parameter',
               flags: {},
               comment: {
@@ -100,7 +100,7 @@ const typedocExample = {
             declaration: {
               id: 5,
               name: '__type',
-              kind: 65536,
+              kind: 65_536,
               kindString: 'Type literal',
               flags: {},
               signatures: [
@@ -114,7 +114,7 @@ const typedocExample = {
                     {
                       id: 7,
                       name: 'value',
-                      kind: 32768,
+                      kind: 32_768,
                       kindString: 'Parameter',
                       flags: {},
                       type: {
@@ -167,7 +167,7 @@ const typedocExample = {
             {
               id: 23,
               name: 'name',
-              kind: 32768,
+              kind: 32_768,
               kindString: 'Parameter',
               flags: {},
               comment: {
@@ -181,7 +181,7 @@ const typedocExample = {
             {
               id: 24,
               name: 'options',
-              kind: 32768,
+              kind: 32_768,
               kindString: 'Parameter',
               flags: {},
               comment: {
@@ -201,7 +201,7 @@ const typedocExample = {
             declaration: {
               id: 25,
               name: '__type',
-              kind: 65536,
+              kind: 65_536,
               kindString: 'Type literal',
               flags: {},
               signatures: [
@@ -215,7 +215,7 @@ const typedocExample = {
                     {
                       id: 27,
                       name: 'value',
-                      kind: 32768,
+                      kind: 32_768,
                       kindString: 'Parameter',
                       flags: {},
                       type: {
@@ -275,7 +275,7 @@ const typedocExample = {
             {
               id: 10,
               name: 'rules',
-              kind: 32768,
+              kind: 32_768,
               kindString: 'Parameter',
               flags: {},
               comment: {
@@ -296,7 +296,7 @@ const typedocExample = {
             declaration: {
               id: 11,
               name: '__type',
-              kind: 65536,
+              kind: 65_536,
               kindString: 'Type literal',
               flags: {},
               signatures: [
@@ -310,7 +310,7 @@ const typedocExample = {
                     {
                       id: 13,
                       name: 'mutation',
-                      kind: 32768,
+                      kind: 32_768,
                       kindString: 'Parameter',
                       flags: {},
                       type: {
@@ -324,7 +324,7 @@ const typedocExample = {
                     declaration: {
                       id: 14,
                       name: '__type',
-                      kind: 65536,
+                      kind: 65_536,
                       kindString: 'Type literal',
                       flags: {},
                       signatures: [
@@ -338,7 +338,7 @@ const typedocExample = {
                             {
                               id: 16,
                               name: 'content',
-                              kind: 32768,
+                              kind: 32_768,
                               kindString: 'Parameter',
                               flags: {},
                               type: {
@@ -392,7 +392,7 @@ const typedocExample = {
             {
               id: 20,
               name: 'value',
-              kind: 32768,
+              kind: 32_768,
               kindString: 'Parameter',
               flags: {},
               comment: {

@@ -1,7 +1,7 @@
 import { MdDocument, MdSection } from './model.js';
 
 const findHeader = (prefix: string) => (lines: string[]) =>
-  (lines.find((line) => line.startsWith(prefix)) || prefix).substring(
+  (lines.find((line) => line.startsWith(prefix)) || prefix).slice(
     prefix.length
   );
 
@@ -29,7 +29,7 @@ const getSecondarySections = (lines: string[]): MdSection[] => {
     .map(detectSecondaryHeader)
     .filter((index) => index >= 0);
   const indexes = [...foundIndexes, lines.length - 1];
-  const idxRange = Array.from(Array(foundIndexes.length).keys());
+  const idxRange = [...Array.from({ length: foundIndexes.length }).keys()];
   const sections = idxRange.map((idx) =>
     linesToSection(lines.slice(indexes[idx], indexes[idx + 1]))
   );

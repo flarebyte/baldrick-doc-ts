@@ -1,12 +1,12 @@
-import path from 'path';
+import path from 'node:path';
 import { Option } from 'commander';
 import { CmdOption } from './model.js';
 
 const capitalize = (value: string): string =>
-  value.length > 0 ? (value[0] || '').toUpperCase() + value.substring(1) : '';
+  value.length > 0 ? (value[0] || '').toUpperCase() + value.slice(1) : '';
 
 const decapitalize = (value: string): string =>
-  value.length > 0 ? (value[0] || '').toLowerCase() + value.substring(1) : '';
+  value.length > 0 ? (value[0] || '').toLowerCase() + value.slice(1) : '';
 
 export const toCamelCase = (longFlag: string): string =>
   decapitalize(longFlag.split('-').map(capitalize).join(''));
