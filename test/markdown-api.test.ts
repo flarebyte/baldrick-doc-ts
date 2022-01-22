@@ -9,7 +9,7 @@ const defaultOps = {
   docBase: '',
   docPrefix: '',
   docDirectory: '',
-  srcDirectory: 'src'
+  srcDirectory: 'src',
 };
 
 describe('markdown-api', () => {
@@ -24,7 +24,7 @@ describe('markdown-api', () => {
   });
   it('should provide markdown without homepage', () => {
     const opts: GenerateTypedocActionOpts = {
-      ...defaultOps
+      ...defaultOps,
     };
     const actual = toTypedocApiMd(opts, typedocExample);
     expect(actual).toMatchSnapshot();
@@ -33,7 +33,7 @@ describe('markdown-api', () => {
     const opts: GenerateTypedocActionOpts = {
       ...defaultOps,
       homepage: 'https://github.com/mycompany/my-project',
-      docBase: 'docs/my-'
+      docBase: 'docs/my-',
     };
     const actual = toTypedocApiMd(opts, typedocExample);
     expect(actual).toMatchSnapshot();

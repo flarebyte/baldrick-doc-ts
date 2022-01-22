@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir } from 'fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { toTypedocApiMd } from './markdown-api.js';
 import { GenerateTypedocActionOpts, RunnerContext } from './model.js';
 import { TypedocJson } from './typedoc-json-model.js';
@@ -21,11 +21,9 @@ const writeApiMd = async (
 };
 
 const createDocDir = async (opts: GenerateTypedocActionOpts) => {
-  if (opts.docDirectory.length === 0 || opts.docDirectory === '.') {
-    await Promise.resolve('no directory');
-  } else {
-    await mkdir(opts.docDirectory, { recursive: true });
-  }
+  await (opts.docDirectory.length === 0 || opts.docDirectory === '.'
+    ? Promise.resolve('no directory')
+    : mkdir(opts.docDirectory, { recursive: true }));
 };
 
 export const updateAll = async (
@@ -36,11 +34,11 @@ export const updateAll = async (
     const typedocJson = await readTypedocJson(opts);
     await createDocDir(opts);
     await writeApiMd(opts, typedocJson);
-  } catch (err) {
+  } catch (error) {
     ctx.errTermFormatter({
       title: 'Generating typedoc - update error',
-      detail: err,
+      detail: error,
     });
-    throw err;
+    throw error;
   }
 };
