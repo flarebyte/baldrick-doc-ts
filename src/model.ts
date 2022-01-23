@@ -99,24 +99,3 @@ export type ParseAction = (
   ctx: RunnerContext,
   options: ParseActionOpts
 ) => Promise<void>;
-
-export interface ImportInfo {
-  identifier: string;
-  source: string;
-  from: string;
-}
-
-export interface FunctionInfo {
-  identifier: string;
-  source: string;
-  bodyLength: number;
-  references: string[];
-  keywords: string[];
-  comment: string;
-  exported: boolean;
-}
-
-export interface ParseInfo {
-  imports: ImportInfo[];
-  functions: FunctionInfo[];
-}

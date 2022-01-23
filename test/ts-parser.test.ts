@@ -88,6 +88,36 @@ describe('ts-parser', () => {
     const firstSource = project.getSourceFiles()[0];
     const actual = firstSource ? parseTsContent(firstSource) : 'no-source-file';
     expect(actual).toMatchInlineSnapshot(`
+      Object {
+        "filename": "source.ts",
+        "functions": Array [
+          Object {
+            "bodyWidth": 128,
+            "descendantCount": 24,
+            "description": "Detect an url",
+            "exported": true,
+            "identifier": "someUrl",
+            "keywords": Array [
+              "BarBarToken",
+              "BinaryExpression",
+              "Block",
+              "CallExpression",
+              "ColonToken",
+              "ConditionalExpression",
+              "ExportKeyword",
+              "FalseKeyword",
+              "Identifier",
+              "Parameter",
+              "PropertyAccessExpression",
+              "QuestionToken",
+              "ReturnStatement",
+              "StringKeyword",
+              "StringLiteral",
+            ],
+          },
+        ],
+        "imports": Array [],
+      }
     `);
   });
 });
