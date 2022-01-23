@@ -60,19 +60,21 @@ const extractFunctionExpressionInfo = (
   const keywords = toUniqueStringArray(
     descendantsNodes.map((node) => node.getKindName())
   );
-  const isFunctionExp = keywords.includes('ArrowFunction')
-  return isFunctionExp ? {
-    identifier: varDecl.getName() || '',
-    bodyWidth: varDecl.getWidth(false),
-    exported: varDecl.isExported(),
-    expression: true,
-    description: varDecl
-      .getLeadingCommentRanges()
-      .map((cr) => cr.getText())
-      .join('\n'),
-    keywords,
-    descendantCount: descendantsNodes.length,
-  }: undefined;
+  const isFunctionExp = keywords.includes('ArrowFunction');
+  return isFunctionExp
+    ? {
+        identifier: varDecl.getName() || '',
+        bodyWidth: varDecl.getWidth(false),
+        exported: varDecl.isExported(),
+        expression: true,
+        description: varDecl
+          .getLeadingCommentRanges()
+          .map((cr) => cr.getText())
+          .join('\n'),
+        keywords,
+        descendantCount: descendantsNodes.length,
+      }
+    : undefined;
 };
 
 export const createProject = () => new Project();
