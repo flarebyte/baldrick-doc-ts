@@ -24,7 +24,19 @@ const funcOneParamWithComment = `
 export function someUrl(value: string) {
   return value.startsWith('http://') || value.startsWith('https://') ? 'url' : false;
 }
+`;
 
+const funcExpression = `
+/**
+ * Detect:
+ * - an url
+ * - starting with http or https
+ * @category String abstractor
+ * @param value the text to check
+ * @returns the url keyword or false
+ */
+ export const someUrl = (value: string) =>
+  value.startsWith('http://') || value.startsWith('https://') ? 'url' : false;
 `;
 
 describe('ts-parser', () => {
@@ -35,54 +47,47 @@ describe('ts-parser', () => {
     const actual = firstSource ? parseTsContent(firstSource) : 'no-source-file';
     expect(actual).toMatchInlineSnapshot(`
       Object {
+        "filename": "source.ts",
         "functions": Array [],
         "imports": Array [
           Object {
             "from": "commander",
             "identifier": "Command",
-            "source": "./source.ts",
           },
           Object {
             "from": "fs",
             "identifier": "nodeFs",
-            "source": "./source.ts",
           },
           Object {
             "from": "./index.js",
             "identifier": "commanding",
-            "source": "./source.ts",
           },
           Object {
             "from": "./model.js",
             "identifier": "GenerateTypedocAction",
-            "source": "./source.ts",
           },
           Object {
             "from": "./model.js",
             "identifier": "GenerateTypedocActionOpts",
-            "source": "./source.ts",
           },
           Object {
             "from": "./model.js",
             "identifier": "ParseAction",
-            "source": "./source.ts",
           },
           Object {
             "from": "./model.js",
             "identifier": "ParseActionOpts",
-            "source": "./source.ts",
           },
           Object {
             "from": "./model.js",
             "identifier": "RunnerContext",
-            "source": "./source.ts",
           },
         ],
       }
     `);
   });
 
-  it.only('parse functions', () => {
+  it('parse functions', () => {
     const project = createProject();
     project.createSourceFile('./source.ts', funcOneParamWithComment);
     const firstSource = project.getSourceFiles()[0];
@@ -96,6 +101,7 @@ describe('ts-parser', () => {
             "descendantCount": 24,
             "description": "Detect an url",
             "exported": true,
+            "expression": false,
             "identifier": "someUrl",
             "keywords": Array [
               "BarBarToken",
@@ -111,6 +117,44 @@ describe('ts-parser', () => {
               "PropertyAccessExpression",
               "QuestionToken",
               "ReturnStatement",
+              "StringKeyword",
+              "StringLiteral",
+            ],
+          },
+        ],
+        "imports": Array [],
+      }
+    `);
+  });
+  it('parse function expressions', () => {
+    const project = createProject();
+    project.createSourceFile('./source.ts', funcExpression);
+    const firstSource = project.getSourceFiles()[0];
+    const actual = firstSource ? parseTsContent(firstSource) : 'no-source-file';
+    expect(actual).toMatchInlineSnapshot(`
+      Object {
+        "filename": "source.ts",
+        "functions": Array [
+          Object {
+            "bodyWidth": 106,
+            "descendantCount": 23,
+            "description": "",
+            "exported": true,
+            "expression": true,
+            "identifier": "someUrl",
+            "keywords": Array [
+              "ArrowFunction",
+              "BarBarToken",
+              "BinaryExpression",
+              "CallExpression",
+              "ColonToken",
+              "ConditionalExpression",
+              "EqualsGreaterThanToken",
+              "FalseKeyword",
+              "Identifier",
+              "Parameter",
+              "PropertyAccessExpression",
+              "QuestionToken",
               "StringKeyword",
               "StringLiteral",
             ],

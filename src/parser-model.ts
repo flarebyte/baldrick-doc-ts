@@ -10,6 +10,7 @@ export interface ImportInfo {
     description: string;
     exported: boolean;
     descendantCount: number;
+    expression: boolean;
   }
   
   export interface SourceInfo {
