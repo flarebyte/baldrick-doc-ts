@@ -1,4 +1,7 @@
-import { toFunctionalProgrammingDiagram } from '../src/fp-diagram';
+import {
+  toFunctionalProgrammingDiagram,
+  toFunctionalProgrammingMermaid,
+} from '../src/fp-diagram';
 import {
   FunctionInfo,
   ImportInfo,
@@ -43,5 +46,7 @@ describe('fp-diagram', () => {
   it('should convert diagram to a diagram structure', () => {
     const actual = toFunctionalProgrammingDiagram(moduleInfo);
     expect(actual).toMatchSnapshot();
+    const mermaid = toFunctionalProgrammingMermaid(actual);
+    expect(mermaid).toMatchSnapshot();
   });
 });
