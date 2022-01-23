@@ -60,7 +60,8 @@ const extractFunctionExpressionInfo = (
   const keywords = toUniqueStringArray(
     descendantsNodes.map((node) => node.getKindName())
   );
-  return {
+  const isFunctionExp = keywords.includes('ArrowFunction')
+  return isFunctionExp ? {
     identifier: varDecl.getName() || '',
     bodyWidth: varDecl.getWidth(false),
     exported: varDecl.isExported(),
@@ -71,7 +72,7 @@ const extractFunctionExpressionInfo = (
       .join('\n'),
     keywords,
     descendantCount: descendantsNodes.length,
-  };
+  }: undefined;
 };
 
 export const createProject = () => new Project();

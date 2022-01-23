@@ -39,6 +39,11 @@ const funcExpression = `
   value.startsWith('http://') || value.startsWith('https://') ? 'url' : false;
 `;
 
+const varExpression = `
+
+ export const someList = [1, 2, 3]
+`;
+
 describe('ts-parser', () => {
   it('parse imports', () => {
     const project = createProject();
@@ -160,6 +165,19 @@ describe('ts-parser', () => {
             ],
           },
         ],
+        "imports": Array [],
+      }
+    `);
+  });
+  it('ignore not function expressions', () => {
+    const project = createProject();
+    project.createSourceFile('./source.ts', varExpression);
+    const firstSource = project.getSourceFiles()[0];
+    const actual = firstSource ? parseTsContent(firstSource) : 'no-source-file';
+    expect(actual).toMatchInlineSnapshot(`
+      Object {
+        "filename": "source.ts",
+        "functions": Array [],
         "imports": Array [],
       }
     `);
