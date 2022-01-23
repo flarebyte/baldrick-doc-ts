@@ -1,9 +1,9 @@
-import { Project, ImportDeclaration } from 'ts-morph';
+import { Project, SourceFile, ImportDeclaration } from 'ts-morph';
 import { ImportInfo, ParseInfo } from './model.js';
 
 const extractImportInfo =
-  (source: string) =>
   (importDecl: ImportDeclaration): ImportInfo[] => {
+      const source = importDecl.getSourceFile().getBaseName()
     const namedImports =
       importDecl
         .getImportClause()
@@ -27,18 +27,31 @@ const extractImportInfo =
     }));
   };
 
-export const parseTsContent = (source: string, content: string): ParseInfo => {
-  const project = new Project();
-  project.createSourceFile(source, content);
-  const current = project.getSourceFile(source);
+
+export const createProject = () => 
+    new Project();
+
+const toUniqueStringArray = (values: string[]): string[] => [...new Set(values)].sort()
+
+export const parseTsContent = (current: SourceFile): ParseInfo => {
   const currentImports = current?.getImportDeclarations() || [];
-
-const parsed = {
-    imports: currentImports.flatMap(extractImportInfo(source)),
+  const currentFunctions = current?.getFunctions() || [];
+  currentFunctions.forEach((functionDecl) => {
+      const descendantsNodes = functionDecl.forEachDescendantAsArray()
+    console.log({
+      name: functionDecl.getName(),
+      bodyWidth: functionDecl.getWidth(false),
+      asynchronous: functionDecl.isAsync(),
+      exported: functionDecl.isExported(),
+      description: functionDecl.getJsDocs().map( doc => doc.getDescription().trim()).join('\n'),
+      keywords: toUniqueStringArray(descendantsNodes.map(node => node.getKindName())),
+      nodeCount: descendantsNodes.length
+    });
+  });
+  const parsed = {
+    imports: currentImports.flatMap(extractImportInfo),
     functions: [],
-  }
-
-  console.log(parsed)
+  };
 
   return parsed;
 };

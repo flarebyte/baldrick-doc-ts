@@ -1,4 +1,4 @@
-import { parseTsContent } from '../src/ts-parser';
+import { createProject, parseTsContent } from '../src/ts-parser';
 
 const someImports = `
 import { Command } from 'commander';
@@ -14,9 +14,25 @@ import {
 
 `;
 
+const funcOneParamWithComment = `
+/**
+ * Detect an url
+ * @category String abstractor
+ * @param value the text to check
+ * @returns the url keyword or false
+ */
+export function someUrl(value: string) {
+  return value.startsWith('http://') || value.startsWith('https://') ? 'url' : false;
+}
+
+`;
+
 describe('ts-parser', () => {
   it('parse imports', () => {
-    const actual = parseTsContent('./source.ts', someImports);
+    const project = createProject();
+    project.createSourceFile('./source.ts', someImports);
+    const firstSource = project.getSourceFiles()[0];
+    const actual = firstSource ? parseTsContent(firstSource) : 'no-source-file';
     expect(actual).toMatchInlineSnapshot(`
       Object {
         "functions": Array [],
@@ -63,6 +79,15 @@ describe('ts-parser', () => {
           },
         ],
       }
+    `);
+  });
+
+  it.only('parse functions', () => {
+    const project = createProject();
+    project.createSourceFile('./source.ts', funcOneParamWithComment);
+    const firstSource = project.getSourceFiles()[0];
+    const actual = firstSource ? parseTsContent(firstSource) : 'no-source-file';
+    expect(actual).toMatchInlineSnapshot(`
     `);
   });
 });
