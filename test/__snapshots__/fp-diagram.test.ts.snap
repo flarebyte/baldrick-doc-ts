@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fp-diagram should convert diagram to a diagram structure 1`] = `
+Object {
+  "entities": Array [
+    Object {
+      "external": false,
+      "filename": "filename-7.js",
+      "functions": Array [
+        Object {
+          "exported": true,
+          "identifier": "create-7",
+        },
+        Object {
+          "exported": false,
+          "identifier": "update-7",
+        },
+        Object {
+          "exported": true,
+          "identifier": "delete-7",
+        },
+      ],
+    },
+    Object {
+      "external": false,
+      "filename": "filename-11.js",
+      "functions": Array [
+        Object {
+          "exported": true,
+          "identifier": "create-11",
+        },
+        Object {
+          "exported": false,
+          "identifier": "update-11",
+        },
+        Object {
+          "exported": true,
+          "identifier": "delete-11",
+        },
+      ],
+    },
+    Object {
+      "external": false,
+      "filename": "filename-17.js",
+      "functions": Array [
+        Object {
+          "exported": true,
+          "identifier": "create-17",
+        },
+        Object {
+          "exported": false,
+          "identifier": "update-17",
+        },
+        Object {
+          "exported": true,
+          "identifier": "delete-17",
+        },
+      ],
+    },
+    Object {
+      "external": false,
+      "filename": "filename-7.js",
+      "functions": Array [
+        Object {
+          "exported": true,
+          "identifier": "import-7-function1",
+        },
+      ],
+    },
+    Object {
+      "external": false,
+      "filename": "filename-11.js",
+      "functions": Array [
+        Object {
+          "exported": true,
+          "identifier": "import-11-function1",
+        },
+      ],
+    },
+    Object {
+      "external": false,
+      "filename": "filename-17.js",
+      "functions": Array [
+        Object {
+          "exported": true,
+          "identifier": "import-17-function1",
+        },
+      ],
+    },
+  ],
+  "name": "this-project",
+  "relationships": Array [
+    Object {
+      "from": "filename-7.js",
+      "to": "external-7",
+    },
+    Object {
+      "from": "filename-11.js",
+      "to": "external-11",
+    },
+    Object {
+      "from": "filename-17.js",
+      "to": "external-17",
+    },
+  ],
+}
+`;

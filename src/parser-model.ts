@@ -18,3 +18,30 @@ export interface SourceInfo {
   imports: ImportInfo[];
   functions: FunctionInfo[];
 }
+
+export interface ModuleInfo {
+  name: string;
+  sources: SourceInfo[];
+}
+
+export interface FunctionDiagram {
+  identifier: string;
+  exported: boolean;
+}
+
+export interface RelationshipDiagram {
+  from: string;
+  to: string;
+}
+
+export interface SourceDiagram {
+  filename: string;
+  external: boolean;
+  functions: FunctionDiagram[];
+}
+
+export interface FunctionalProgrammingDiagram {
+  name: string;
+  entities: SourceDiagram[];
+  relationships: RelationshipDiagram[];
+}
