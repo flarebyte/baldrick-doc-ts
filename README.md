@@ -40,6 +40,8 @@ It is recommended to add it a script in your `package.json`
 
 ### Options
 
+Generate typedoc documentation as markdown:
+
 ```bash
 Usage: baldrick-doc-ts typedoc [options]
 
@@ -50,6 +52,26 @@ Options:
                                        default: ["md"])
   - s, --json-source [jsonSource]       Typedoc json filename (default:
                                        "doc.json")
+  - db, --doc-base [docBase]            Specify the base name for
+documentation
+                                       (doc/api) (default: "")
+  - sd, --src-directory [srcDirectory]  Directory of the source code that
+will
+                                       be used for links (default: "src")
+  - h, --help                           display help for command
+```
+
+Generate diagram of internal code base:
+
+```bash
+Usage: baldrick-doc-ts parse [options]
+
+Parse typescript and extract documentation
+
+Options:
+  - f, --feature [feature...]           List of features (choices:
+"md+mermaid",
+                                       default: ["md"])
   - db, --doc-base [docBase]            Specify the base name for
 documentation
                                        (doc/api) (default: "")
