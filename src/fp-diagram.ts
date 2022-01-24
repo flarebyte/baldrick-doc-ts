@@ -62,6 +62,40 @@ const entityToMermaid = (entity: SourceDiagram): string[] => [
 const relationshipToMermaid = (relationship: RelationshipDiagram): string =>
   `${bq}${relationship.from}${bq}-->${bq}${relationship.to}${bq}`;
 
+const noDuplicateFunctionDiagram = (
+  functionDiagram: FunctionDiagram,
+  index: number,
+  functionDiagrams: FunctionDiagram[]
+): boolean =>
+  functionDiagrams.findIndex(
+    (d) => d.identifier === functionDiagram.identifier
+  ) === index;
+
+const mergeFunctionDiagrams = (
+  a: FunctionDiagram[],
+  b: FunctionDiagram[]
+): FunctionDiagram[] => [...a, ...b].filter(noDuplicateFunctionDiagram);
+
+export const mergeSourceDiagrams = (
+  sources: SourceDiagram[]
+): SourceDiagram[] => {
+  const results = new Map<string, SourceDiagram>();
+  for (const source of sources) {
+    const previous = results.get(source.filename);
+    const newSource: SourceDiagram = previous
+      ? {
+          ...source,
+          functions: mergeFunctionDiagrams(
+            source.functions,
+            previous.functions
+          ),
+        }
+      : source;
+
+    results.set(source.filename, newSource);
+  }
+  return [...results.values()];
+};
 export const toFunctionalProgrammingMermaid = (
   diagram: FunctionalProgrammingDiagram
 ): string => {
