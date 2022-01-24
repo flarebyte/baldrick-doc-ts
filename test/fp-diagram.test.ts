@@ -42,7 +42,12 @@ const createSource = (id: number): SourceInfo => ({
 
 const moduleInfo: ModuleInfo = {
   name: 'this-project',
-  sources: [createSource(7), createSource(11), createSource(17)],
+  sources: [
+    createSource(7),
+    createSource(11),
+    createSource(17),
+    { ...createSource(21), functions: [] },
+  ],
 };
 
 const createFunctionDiagram = (identifier: string): FunctionDiagram => ({

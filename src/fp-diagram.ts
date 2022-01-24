@@ -16,14 +16,12 @@ const functionInfoToDiagram = (source: SourceInfo): SourceDiagram => ({
   })),
 });
 
-const importInfoToDiagram = (source: SourceInfo): SourceDiagram => ({
-  filename: source.filename,
-  external: false,
-  functions: source.imports.map((i) => ({
-    identifier: i.identifier,
-    exported: true,
-  })),
-});
+const importInfoToDiagrams = (source: SourceInfo): SourceDiagram[] =>
+  source.imports.map((i) => ({
+    filename: i.from,
+    external: true,
+    functions: [{ identifier: i.identifier, exported: true }],
+  }));
 
 const importInfoToRelationships = (source: SourceInfo): RelationshipDiagram[] =>
   source.imports.map((i) => ({
@@ -38,7 +36,7 @@ export const toFunctionalProgrammingDiagram = (
     functionInfoToDiagram
   );
   const importedSources: SourceDiagram[] =
-    moduleInfo.sources.map(importInfoToDiagram);
+    moduleInfo.sources.flatMap(importInfoToDiagrams);
 
   const relationships = moduleInfo.sources.flatMap(importInfoToRelationships);
 
@@ -54,11 +52,15 @@ const bq = '`';
 
 const functionToMermaid = (func: FunctionDiagram): string =>
   `${func.exported ? '  +' : '  -'}${func.identifier}()`;
-const entityToMermaid = (entity: SourceDiagram): string[] => [
-  `class ${bq}${entity.filename}${bq}{`,
-  ...entity.functions.map(functionToMermaid),
-  '}',
-];
+
+const entityToMermaid = (entity: SourceDiagram): string[] =>
+  entity.functions.length === 0
+    ? [`class ${bq}${entity.filename}${bq}`]
+    : [
+        `class ${bq}${entity.filename}${bq}{`,
+        ...entity.functions.map(functionToMermaid),
+        '}',
+      ];
 const relationshipToMermaid = (relationship: RelationshipDiagram): string =>
   `${bq}${relationship.from}${bq}-->${bq}${relationship.to}${bq}`;
 
@@ -96,6 +98,7 @@ export const mergeSourceDiagrams = (
   }
   return [...results.values()];
 };
+
 export const toFunctionalProgrammingMermaid = (
   diagram: FunctionalProgrammingDiagram
 ): string => {
