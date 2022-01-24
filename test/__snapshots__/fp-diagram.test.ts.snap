@@ -107,31 +107,32 @@ Object {
 `;
 
 exports[`fp-diagram should convert diagram to a diagram structure 2`] = `
-"class filename-7.js{
+"classDiagram
+class \`filename-7.js\`{
   +create-7()
   -update-7()
   +delete-7()
 }
-class filename-11.js{
+class \`filename-11.js\`{
   +create-11()
   -update-11()
   +delete-11()
 }
-class filename-17.js{
+class \`filename-17.js\`{
   +create-17()
   -update-17()
   +delete-17()
 }
-class filename-7.js{
+class \`filename-7.js\`{
   +import-7-function1()
 }
-class filename-11.js{
+class \`filename-11.js\`{
   +import-11-function1()
 }
-class filename-17.js{
+class \`filename-17.js\`{
   +import-17-function1()
 }
-filename-7.js-->external-7
-filename-11.js-->external-11
-filename-17.js-->external-17"
+\`filename-7.js\`-->\`external-7\`
+\`filename-11.js\`-->\`external-11\`
+\`filename-17.js\`-->\`external-17\`"
 `;

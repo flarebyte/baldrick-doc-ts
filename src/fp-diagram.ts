@@ -49,20 +49,24 @@ export const toFunctionalProgrammingDiagram = (
   };
   return fpDiagram;
 };
+
+const bq = '`';
+
 const functionToMermaid = (func: FunctionDiagram): string =>
   `${func.exported ? '  +' : '  -'}${func.identifier}()`;
 const entityToMermaid = (entity: SourceDiagram): string[] => [
-  `class ${entity.filename}{`,
+  `class ${bq}${entity.filename}${bq}{`,
   ...entity.functions.map(functionToMermaid),
   '}',
 ];
 const relationshipToMermaid = (relationship: RelationshipDiagram): string =>
-  `${relationship.from}-->${relationship.to}`;
+  `${bq}${relationship.from}${bq}-->${bq}${relationship.to}${bq}`;
 
 export const toFunctionalProgrammingMermaid = (
   diagram: FunctionalProgrammingDiagram
 ): string => {
   const lines = [
+    'classDiagram',
     ...diagram.entities.flatMap(entityToMermaid),
     ...diagram.relationships.flatMap(relationshipToMermaid),
   ];
