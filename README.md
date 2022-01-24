@@ -21,7 +21,7 @@ node.js libraries written in Typescript:
     basic documentation that the default `typedoc` but does not generate
     any html or css that would become part of the source code, and may
     raise some warnings with many linters.
-    
+
 -   It is part of the `baldrick` suite of tools, and is optimized to work
     alongside these.
 
@@ -46,15 +46,17 @@ Usage: baldrick-doc-ts typedoc [options]
 Generate typedoc documentation
 
 Options:
-  -f, --feature [feature...]           List of features (choices: "md",
+  - f, --feature [feature...]           List of features (choices: "md",
                                        default: ["md"])
-  -s, --json-source [jsonSource]       Typedoc json filename (default:
+  - s, --json-source [jsonSource]       Typedoc json filename (default:
                                        "doc.json")
-  -db, --doc-base [docBase]            Specify the base name for documentation
+  - db, --doc-base [docBase]            Specify the base name for
+documentation
                                        (doc/api) (default: "")
-  -sd, --src-directory [srcDirectory]  Directory of the source code that will
+  - sd, --src-directory [srcDirectory]  Directory of the source code that
+will
                                        be used for links (default: "src")
-  -h, --help                           display help for command
+  - h, --help                           display help for command
 ```
 
 ## Documentation and links

@@ -58,7 +58,8 @@
     "release:ci": "baldrick release ci",
     "h": "cat commands.txt",
     "norm": "npx baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT && yarn md:fix",
-    "norm:g": "baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT && yarn md:fix"
+    "norm:g": "baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT && yarn md:fix",
+    "doc:int": "baldrick-doc-ts parse -f md+mermaid"
   },
   "dependencies": {
     "ts-morph": "^13.0.2"
