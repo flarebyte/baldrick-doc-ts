@@ -2,8 +2,11 @@ import { updateAll } from './io-sfx.js';
 import {
   GenerateTypedocAction,
   GenerateTypedocActionOpts,
+  ParseAction,
+  ParseActionOpts,
   RunnerContext,
 } from './model.js';
+import { parseAction } from './parse-action.js';
 
 export const cmdGenerateTypedocAction: GenerateTypedocAction = async (
   ctx: RunnerContext,
@@ -13,6 +16,19 @@ export const cmdGenerateTypedocAction: GenerateTypedocAction = async (
   ctx.termFormatter({
     title: 'Generated typedoc documentation',
     detail: ['Check the generated API.md'].join('\n'),
+    kind: 'info',
+    format: 'default',
+  });
+};
+
+export const cmdParseAction: ParseAction = async (
+  ctx: RunnerContext,
+  options: ParseActionOpts
+) => {
+  await parseAction(ctx, options);
+  ctx.termFormatter({
+    title: 'Parse typescript for documentation',
+    detail: ['Check the generated INTERNAL.md'].join('\n'),
     kind: 'info',
     format: 'default',
   });
