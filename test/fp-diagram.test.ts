@@ -80,6 +80,7 @@ describe('fp-diagram', () => {
       createSourceDiagram('Jupiter', ['Ganymede', 'Europa']),
       createSourceDiagram('Jupiter', ['Callisto']),
       createSourceDiagram('Jupiter', ['Callisto', 'Himalia']),
+      createSourceDiagram('Jupiter', ['Callisto', 'Himalia']),
       createSourceDiagram('Jupiter', ['Elara']),
     ];
     const actual = mergeSourceDiagrams(sources);

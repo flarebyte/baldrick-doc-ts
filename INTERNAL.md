@@ -10,72 +10,32 @@ This document has been generated automatically by
 ```mermaid
 classDiagram
 class `client.ts`{
-  +commanding()
   +runClient()
 }
 class `commanding-action.ts`{
-  +updateAll()
-  +GenerateTypedocAction()
-  +GenerateTypedocActionOpts()
-  +ParseAction()
-  +ParseActionOpts()
-  +RunnerContext()
-  +parseAction()
   +cmdGenerateTypedocAction()
   +cmdParseAction()
 }
-class `commanding-data.ts`{
-  +CmdOption()
-  +CmdOptionsGeneratorTypedoc()
-  +CmdOptionsParser()
-}
+class `commanding-data.ts`
 class `commanding-helper.ts`{
-  +path()
-  +Option()
-  +CmdOption()
   - capitalize()
   - decapitalize()
   +toCamelCase()
   +toCommanderOption()
   +splitDocBase()
 }
-class `commanding.ts`{
-  +Command()
-  +cmdOptionsGenerator()
-  +cmdOptionsParser()
-  +splitDocBase()
-  +toCommanderOption()
-  +getPackageName()
-  +toFeatures()
-  +GenerateTypedocAction()
-  +GenerateTypedocActionOpts()
-  +GenerateTypedocRawOpts()
-  +ParseAction()
-  +ParseActionOpts()
-  +ParseRawOpts()
-  +RunnerContext()
-  +basicFormatter()
-  +errorFormatter()
-  +version()
-}
+class `commanding.ts`
 class `env-helper.ts`{
   +getPackageName()
 }
 class `feature-helper.ts`{
-  +SupportedFeature()
   - isFeature()
   - toFeature()
   +toFeatures()
 }
 class `fp-diagram.ts`{
-  +FunctionalProgrammingDiagram()
-  +ModuleInfo()
-  +SourceInfo()
-  +SourceDiagram()
-  +RelationshipDiagram()
-  +FunctionDiagram()
   - functionInfoToDiagram()
-  - importInfoToDiagram()
+  - importInfoToDiagrams()
   - importInfoToRelationships()
   +toFunctionalProgrammingDiagram()
   - functionToMermaid()
@@ -84,33 +44,17 @@ class `fp-diagram.ts`{
   - noDuplicateFunctionDiagram()
   - mergeFunctionDiagrams()
   +mergeSourceDiagrams()
+  - noDuplicateRelationshipDiagram()
   +toFunctionalProgrammingMermaid()
 }
-class `index.ts`{
-  +cmdGenerateTypedocAction()
-  +cmdParseAction()
-  +Commanding()
-}
+class `index.ts`
 class `io-sfx.ts`{
-  +readFile()
-  +writeFile()
-  +mkdir()
-  +toTypedocApiMd()
-  +GenerateTypedocActionOpts()
-  +RunnerContext()
-  +TypedocJson()
   - readTypedocJson()
   - writeApiMd()
   - createDocDir()
   +updateAll()
 }
 class `markdown-api.ts`{
-  +markdownToString()
-  +GenerateTypedocActionOpts()
-  +MdSection()
-  +Parameter()
-  +TypedocChild()
-  +TypedocJson()
   - apiFilename()
   - parameterToString()
   - functionToMdSection()
@@ -119,17 +63,9 @@ class `markdown-api.ts`{
   +toTypedocApiMd()
 }
 class `markdown-internal.ts`{
-  +toFunctionalProgrammingDiagram()
-  +toFunctionalProgrammingMermaid()
-  +markdownToString()
-  +MdDocument()
-  +MdSection()
-  +ModuleInfo()
   +toMarkdownInternal()
 }
 class `markdown.ts`{
-  +MdDocument()
-  +MdSection()
   - findHeader()
   - getMainSection()
   - discardHeader2()
@@ -141,26 +77,14 @@ class `markdown.ts`{
   - sectionToString()
   +markdownToString()
 }
-class `model.ts`{
-}
+class `model.ts`
 class `parse-action.ts`{
-  +writeFile()
-  +mkdir()
-  +toMarkdownInternal()
-  +ParseActionOpts()
-  +RunnerContext()
-  +createProject()
-  +parseProject()
   - createDocDir()
   - generateInternalMd()
   +parseAction()
 }
-class `parser-model.ts`{
-}
+class `parser-model.ts`
 class `term-formatter.ts`{
-  +ErrTermFormatterParams()
-  +TermFormatterFormat()
-  +TermFormatterParams()
   - simplifyObj()
   - simplifyJson()
   - toJsonish()
@@ -168,15 +92,6 @@ class `term-formatter.ts`{
   +errorFormatter()
 }
 class `ts-parser.ts`{
-  +Project()
-  +SourceFile()
-  +ImportDeclaration()
-  +FunctionDeclaration()
-  +VariableDeclaration()
-  +FunctionInfo()
-  +ImportInfo()
-  +ModuleInfo()
-  +SourceInfo()
   - extractImportInfo()
   - toUniqueStringArray()
   - extractFunctionInfo()
@@ -186,89 +101,151 @@ class `ts-parser.ts`{
   +parseTsContent()
   +parseProject()
 }
-class `typedoc-json-model.ts`{
+class `typedoc-json-model.ts`
+class `version.ts`
+class `./index.js`{
+  +commanding()
 }
-class `version.ts`{
+class `./io-sfx.js`{
+  +updateAll()
+}
+class `./model.js`{
+  +TermFormatterParams()
+  +TermFormatterFormat()
+  +ErrTermFormatterParams()
+  +RunnerContext()
+  +ParseActionOpts()
+  +MdSection()
+  +MdDocument()
+  +GenerateTypedocActionOpts()
+  +SupportedFeature()
+  +ParseRawOpts()
+  +ParseAction()
+  +GenerateTypedocRawOpts()
+  +GenerateTypedocAction()
+  +CmdOption()
+  +CmdOptionsParser()
+  +CmdOptionsGeneratorTypedoc()
+}
+class `./parse-action.js`{
+  +parseAction()
+}
+class `node:path`{
+  +path()
+}
+class `commander`{
+  +Command()
+  +Option()
+}
+class `./commanding-data.js`{
+  +cmdOptionsParser()
+  +cmdOptionsGenerator()
+}
+class `./commanding-helper.js`{
+  +toCommanderOption()
+  +splitDocBase()
+}
+class `./env-helper.js`{
+  +getPackageName()
+}
+class `./feature-helper.js`{
+  +toFeatures()
+}
+class `./term-formatter.js`{
+  +errorFormatter()
+  +basicFormatter()
+}
+class `./version.js`{
+  +version()
+}
+class `./parser-model.js`{
+  +SourceInfo()
+  +ModuleInfo()
+  +ImportInfo()
+  +FunctionInfo()
+  +FunctionDiagram()
+  +RelationshipDiagram()
+  +SourceDiagram()
+  +FunctionalProgrammingDiagram()
+}
+class `./commanding-action.js`{
+  +cmdParseAction()
+  +cmdGenerateTypedocAction()
+}
+class `./commanding.js`{
+  +Commanding()
+}
+class `node:fs/promises`{
+  +mkdir()
+  +writeFile()
+  +readFile()
+}
+class `./markdown-api.js`{
+  +toTypedocApiMd()
+}
+class `./typedoc-json-model.js`{
+  +TypedocJson()
+  +TypedocChild()
+  +Parameter()
+}
+class `./markdown.js`{
+  +markdownToString()
+}
+class `./fp-diagram.js`{
+  +toFunctionalProgrammingMermaid()
+  +toFunctionalProgrammingDiagram()
+}
+class `./markdown-internal.js`{
+  +toMarkdownInternal()
+}
+class `./ts-parser.js`{
+  +parseProject()
+  +createProject()
+}
+class `ts-morph`{
+  +VariableDeclaration()
+  +FunctionDeclaration()
+  +ImportDeclaration()
+  +SourceFile()
+  +Project()
 }
 `client.ts`-->`./index.js`
 `commanding-action.ts`-->`./io-sfx.js`
 `commanding-action.ts`-->`./model.js`
-`commanding-action.ts`-->`./model.js`
-`commanding-action.ts`-->`./model.js`
-`commanding-action.ts`-->`./model.js`
-`commanding-action.ts`-->`./model.js`
 `commanding-action.ts`-->`./parse-action.js`
-`commanding-data.ts`-->`./model.js`
-`commanding-data.ts`-->`./model.js`
 `commanding-data.ts`-->`./model.js`
 `commanding-helper.ts`-->`node:path`
 `commanding-helper.ts`-->`commander`
 `commanding-helper.ts`-->`./model.js`
 `commanding.ts`-->`commander`
 `commanding.ts`-->`./commanding-data.js`
-`commanding.ts`-->`./commanding-data.js`
-`commanding.ts`-->`./commanding-helper.js`
 `commanding.ts`-->`./commanding-helper.js`
 `commanding.ts`-->`./env-helper.js`
 `commanding.ts`-->`./feature-helper.js`
 `commanding.ts`-->`./model.js`
-`commanding.ts`-->`./model.js`
-`commanding.ts`-->`./model.js`
-`commanding.ts`-->`./model.js`
-`commanding.ts`-->`./model.js`
-`commanding.ts`-->`./model.js`
-`commanding.ts`-->`./model.js`
-`commanding.ts`-->`./term-formatter.js`
 `commanding.ts`-->`./term-formatter.js`
 `commanding.ts`-->`./version.js`
 `feature-helper.ts`-->`./model.js`
 `fp-diagram.ts`-->`./parser-model.js`
-`fp-diagram.ts`-->`./parser-model.js`
-`fp-diagram.ts`-->`./parser-model.js`
-`fp-diagram.ts`-->`./parser-model.js`
-`fp-diagram.ts`-->`./parser-model.js`
-`fp-diagram.ts`-->`./parser-model.js`
-`index.ts`-->`./commanding-action.js`
 `index.ts`-->`./commanding-action.js`
 `index.ts`-->`./commanding.js`
 `io-sfx.ts`-->`node:fs/promises`
-`io-sfx.ts`-->`node:fs/promises`
-`io-sfx.ts`-->`node:fs/promises`
 `io-sfx.ts`-->`./markdown-api.js`
-`io-sfx.ts`-->`./model.js`
 `io-sfx.ts`-->`./model.js`
 `io-sfx.ts`-->`./typedoc-json-model.js`
 `markdown-api.ts`-->`./markdown.js`
 `markdown-api.ts`-->`./model.js`
-`markdown-api.ts`-->`./model.js`
 `markdown-api.ts`-->`./typedoc-json-model.js`
-`markdown-api.ts`-->`./typedoc-json-model.js`
-`markdown-api.ts`-->`./typedoc-json-model.js`
-`markdown-internal.ts`-->`./fp-diagram.js`
 `markdown-internal.ts`-->`./fp-diagram.js`
 `markdown-internal.ts`-->`./markdown.js`
 `markdown-internal.ts`-->`./model.js`
-`markdown-internal.ts`-->`./model.js`
 `markdown-internal.ts`-->`./parser-model.js`
 `markdown.ts`-->`./model.js`
-`markdown.ts`-->`./model.js`
-`parse-action.ts`-->`node:fs/promises`
 `parse-action.ts`-->`node:fs/promises`
 `parse-action.ts`-->`./markdown-internal.js`
 `parse-action.ts`-->`./model.js`
-`parse-action.ts`-->`./model.js`
-`parse-action.ts`-->`./ts-parser.js`
 `parse-action.ts`-->`./ts-parser.js`
 `term-formatter.ts`-->`./model.js`
-`term-formatter.ts`-->`./model.js`
-`term-formatter.ts`-->`./model.js`
 `ts-parser.ts`-->`ts-morph`
-`ts-parser.ts`-->`ts-morph`
-`ts-parser.ts`-->`ts-morph`
-`ts-parser.ts`-->`ts-morph`
-`ts-parser.ts`-->`ts-morph`
-`ts-parser.ts`-->`./parser-model.js`
-`ts-parser.ts`-->`./parser-model.js`
-`ts-parser.ts`-->`./parser-model.js`
 `ts-parser.ts`-->`./parser-model.js`
 ```

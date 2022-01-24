@@ -99,6 +99,16 @@ export const mergeSourceDiagrams = (
   return [...results.values()];
 };
 
+const noDuplicateRelationshipDiagram = (
+  relationshipDiagram: RelationshipDiagram,
+  index: number,
+  relationshipDiagrams: RelationshipDiagram[]
+): boolean =>
+  relationshipDiagrams.findIndex(
+    (rel) =>
+      rel.from === relationshipDiagram.from && rel.to === relationshipDiagram.to
+  ) === index;
+
 export const toFunctionalProgrammingMermaid = (
   diagram: FunctionalProgrammingDiagram
 ): string => {
@@ -106,7 +116,9 @@ export const toFunctionalProgrammingMermaid = (
   const lines = [
     'classDiagram',
     ...entities.flatMap(entityToMermaid),
-    ...diagram.relationships.flatMap(relationshipToMermaid),
+    ...diagram.relationships
+      .filter(noDuplicateRelationshipDiagram)
+      .flatMap(relationshipToMermaid),
   ];
   return lines.join('\n');
 };
