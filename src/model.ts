@@ -1,4 +1,4 @@
-export type SupportedFeature = 'md';
+export type SupportedFeature = 'md' | 'md+mermaid';
 
 export interface GenerateTypedocActionOpts {
   feature: SupportedFeature[];
@@ -16,6 +16,7 @@ export interface ParseActionOpts {
   docPrefix: string;
   docDirectory: string;
   srcDirectory: string;
+  packageName: string;
 }
 
 export interface GenerateTypedocRawOpts {

@@ -49,8 +49,18 @@ export const cmdOptionsGenerator: CmdOptionsGeneratorTypedoc = {
   srcDirectory,
 };
 
+const featureParser: CmdOption = {
+  shortFlag: 'f',
+  longFlag: 'feature',
+  description: 'List of features',
+  choices: ['md+mermaid'],
+  mandatory: false,
+  variadic: true,
+  defaultValue: ['md'],
+};
+
 export const cmdOptionsParser: CmdOptionsParser = {
-  feature,
+  feature: featureParser,
   docBase,
   srcDirectory,
 };

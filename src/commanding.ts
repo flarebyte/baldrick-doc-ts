@@ -1,6 +1,7 @@
 import { Command } from 'commander';
 import { cmdOptionsGenerator, cmdOptionsParser } from './commanding-data.js';
 import { splitDocBase, toCommanderOption } from './commanding-helper.js';
+import { getPackageName } from './env-helper.js';
 import { toFeatures } from './feature-helper.js';
 import {
   GenerateTypedocAction,
@@ -63,6 +64,7 @@ export class Commanding {
           docBase,
           ...splitDocBase(docBase),
           srcDirectory,
+          packageName: getPackageName(),
         };
         const ctx: RunnerContext = {
           currentPath: process.cwd(),

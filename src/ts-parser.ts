@@ -5,7 +5,12 @@ import {
   FunctionDeclaration,
   VariableDeclaration,
 } from 'ts-morph';
-import { FunctionInfo, ImportInfo, SourceInfo } from './parser-model.js';
+import {
+  FunctionInfo,
+  ImportInfo,
+  ModuleInfo,
+  SourceInfo,
+} from './parser-model.js';
 
 const extractImportInfo = (importDecl: ImportDeclaration): ImportInfo[] => {
   const namedImports =
@@ -99,3 +104,8 @@ export const parseTsContent = (current: SourceFile): SourceInfo => {
   };
   return parsed;
 };
+
+export const parseProject = (name: string, project: Project): ModuleInfo => ({
+  name,
+  sources: project.getSourceFiles().map(parseTsContent),
+});
