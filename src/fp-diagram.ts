@@ -99,9 +99,10 @@ export const mergeSourceDiagrams = (
 export const toFunctionalProgrammingMermaid = (
   diagram: FunctionalProgrammingDiagram
 ): string => {
+  const entities = mergeSourceDiagrams(diagram.entities);
   const lines = [
     'classDiagram',
-    ...diagram.entities.flatMap(entityToMermaid),
+    ...entities.flatMap(entityToMermaid),
     ...diagram.relationships.flatMap(relationshipToMermaid),
   ];
   return lines.join('\n');
