@@ -44,6 +44,21 @@ const varExpression = `
  export const someList = [1, 2, 3]
 `;
 
+const someInterface = `
+export interface CmdOptionsParser {
+  feature: CmdOption;
+  docBase: CmdOption;
+  srcDirectory: CmdOption;
+}
+`;
+
+const someTypeAlias = `
+export type GenerateTypedocAction = (
+  ctx: RunnerContext,
+  options: GenerateTypedocActionOpts
+) => Promise<void>;
+`;
+
 describe('ts-parser', () => {
   it('parse imports', () => {
     const project = createProject();
@@ -88,6 +103,7 @@ describe('ts-parser', () => {
             "identifier": "RunnerContext",
           },
         ],
+        "interfaces": Array [],
       }
     `);
   });
@@ -128,6 +144,7 @@ describe('ts-parser', () => {
           },
         ],
         "imports": Array [],
+        "interfaces": Array [],
       }
     `);
   });
@@ -166,6 +183,7 @@ describe('ts-parser', () => {
           },
         ],
         "imports": Array [],
+        "interfaces": Array [],
       }
     `);
   });
@@ -179,6 +197,45 @@ describe('ts-parser', () => {
         "filename": "source.ts",
         "functions": Array [],
         "imports": Array [],
+        "interfaces": Array [],
+      }
+    `);
+  });
+  it('parse interfaces', () => {
+    const project = createProject();
+    project.createSourceFile('./source.ts', someInterface);
+    const firstSource = project.getSourceFiles()[0];
+    const actual = firstSource ? parseTsContent(firstSource) : 'no-source-file';
+    expect(actual).toMatchInlineSnapshot(`
+      Object {
+        "filename": "source.ts",
+        "functions": Array [],
+        "imports": Array [],
+        "interfaces": Array [
+          Object {
+            "exported": true,
+            "identifier": "CmdOptionsParser",
+          },
+        ],
+      }
+    `);
+  });
+  it('parse type aliases', () => {
+    const project = createProject();
+    project.createSourceFile('./source.ts', someTypeAlias);
+    const firstSource = project.getSourceFiles()[0];
+    const actual = firstSource ? parseTsContent(firstSource) : 'no-source-file';
+    expect(actual).toMatchInlineSnapshot(`
+      Object {
+        "filename": "source.ts",
+        "functions": Array [],
+        "imports": Array [],
+        "interfaces": Array [
+          Object {
+            "exported": true,
+            "identifier": "GenerateTypedocAction",
+          },
+        ],
       }
     `);
   });

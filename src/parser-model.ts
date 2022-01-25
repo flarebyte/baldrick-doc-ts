@@ -13,10 +13,16 @@ export interface FunctionInfo {
   expression: boolean;
 }
 
+export interface InterfaceInfo {
+  identifier: string;
+  exported: boolean;
+}
+
 export interface SourceInfo {
   filename: string;
   imports: ImportInfo[];
   functions: FunctionInfo[];
+  interfaces: InterfaceInfo[];
 }
 
 export interface ModuleInfo {
@@ -44,4 +50,21 @@ export interface FunctionalProgrammingDiagram {
   name: string;
   entities: SourceDiagram[];
   relationships: RelationshipDiagram[];
+}
+
+export interface Vocabulary {
+  words: string[];
+  filename: string;
+}
+
+export interface ProjectVocabulary {
+  vocabulary: Vocabulary[];
+}
+
+export interface VocabularyNGram {
+  ngram: string[];
+  count: number;
+}
+export interface ProjectNgram {
+  ngram: VocabularyNGram[];
 }

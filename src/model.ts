@@ -1,4 +1,4 @@
-export type SupportedFeature = 'md' | 'md+mermaid';
+export type SupportedFeature = 'md' | 'internal' | 'ngram';
 
 export interface GenerateTypedocActionOpts {
   feature: SupportedFeature[];
