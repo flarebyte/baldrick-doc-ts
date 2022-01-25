@@ -5,6 +5,7 @@ import {
   FunctionDeclaration,
   VariableDeclaration,
   InterfaceDeclaration,
+  TypeAliasDeclaration,
 } from 'ts-morph';
 import {
   FunctionInfo,
@@ -91,6 +92,13 @@ const extractInterfaceInfo = (
   exported: interfaceDecl.isExported(),
 });
 
+const extractTypeAliasInfo = (
+  typeAliasDecl: TypeAliasDeclaration
+): InterfaceInfo => ({
+  identifier: typeAliasDecl.getName(),
+  exported: typeAliasDecl.isExported(),
+});
+
 export const createProject = () => new Project();
 
 const isFunctionInfo = (
@@ -103,6 +111,7 @@ export const parseTsContent = (current: SourceFile): SourceInfo => {
   const currentFunctions = current?.getFunctions() || [];
   const classicFunctions = currentFunctions.map(extractFunctionInfo);
   const currentInterfaces = current?.getInterfaces() || [];
+  const currentTypeAliases = current?.getTypeAliases() || [];
   const expressionFunctions = current
     .getVariableDeclarations()
     .map(extractFunctionExpressionInfo)
@@ -111,7 +120,10 @@ export const parseTsContent = (current: SourceFile): SourceInfo => {
     filename: current.getBaseName(),
     imports: currentImports.flatMap(extractImportInfo),
     functions: [...classicFunctions, ...expressionFunctions],
-    interfaces: currentInterfaces.map(extractInterfaceInfo),
+    interfaces: [
+      ...currentInterfaces.map(extractInterfaceInfo),
+      ...currentTypeAliases.map(extractTypeAliasInfo),
+    ],
   };
   return parsed;
 };
