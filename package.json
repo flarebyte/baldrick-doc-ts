@@ -62,7 +62,7 @@
     "doc:int": "baldrick-doc-ts parse -f md+mermaid"
   },
   "dependencies": {
-    "ts-morph": "^13.0.2"
+    "ts-morph": "13.0.3"
   },
   "devDependencies": {
     "baldrick-dev-ts": "0.15.0",
