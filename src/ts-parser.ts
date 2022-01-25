@@ -4,10 +4,12 @@ import {
   ImportDeclaration,
   FunctionDeclaration,
   VariableDeclaration,
+  InterfaceDeclaration,
 } from 'ts-morph';
 import {
   FunctionInfo,
   ImportInfo,
+  InterfaceInfo,
   ModuleInfo,
   SourceInfo,
 } from './parser-model.js';
@@ -82,6 +84,13 @@ const extractFunctionExpressionInfo = (
     : undefined;
 };
 
+const extractInterfaceInfo = (
+  interfaceDecl: InterfaceDeclaration
+): InterfaceInfo => ({
+  identifier: interfaceDecl.getName(),
+  exported: interfaceDecl.isExported(),
+});
+
 export const createProject = () => new Project();
 
 const isFunctionInfo = (
@@ -93,14 +102,16 @@ export const parseTsContent = (current: SourceFile): SourceInfo => {
   const currentImports = current?.getImportDeclarations() || [];
   const currentFunctions = current?.getFunctions() || [];
   const classicFunctions = currentFunctions.map(extractFunctionInfo);
+  const currentInterfaces = current?.getInterfaces() || [];
   const expressionFunctions = current
     .getVariableDeclarations()
     .map(extractFunctionExpressionInfo)
     .filter(isFunctionInfo);
-  const parsed = {
+  const parsed: SourceInfo = {
     filename: current.getBaseName(),
     imports: currentImports.flatMap(extractImportInfo),
     functions: [...classicFunctions, ...expressionFunctions],
+    interfaces: currentInterfaces.map(extractInterfaceInfo),
   };
   return parsed;
 };

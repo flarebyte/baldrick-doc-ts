@@ -38,6 +38,7 @@ const createSource = (id: number): SourceInfo => ({
     createFunctionInfo(`update-${id}`, false),
     createFunctionInfo(`delete-${id}`, true),
   ],
+  interfaces: [],
 });
 
 const moduleInfo: ModuleInfo = {

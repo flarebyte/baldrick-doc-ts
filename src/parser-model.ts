@@ -13,10 +13,16 @@ export interface FunctionInfo {
   expression: boolean;
 }
 
+export interface InterfaceInfo {
+  identifier: string;
+  exported: boolean;
+}
+
 export interface SourceInfo {
   filename: string;
   imports: ImportInfo[];
   functions: FunctionInfo[];
+  interfaces: InterfaceInfo[];
 }
 
 export interface ModuleInfo {
