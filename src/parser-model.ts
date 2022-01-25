@@ -51,3 +51,20 @@ export interface FunctionalProgrammingDiagram {
   entities: SourceDiagram[];
   relationships: RelationshipDiagram[];
 }
+
+export interface Vocabulary {
+  words: string[];
+  filename: string;
+}
+
+export interface ProjectVocabulary {
+  vocabulary: Vocabulary[];
+}
+
+export interface VocabularyNGram {
+  ngram: string[];
+  count: number;
+}
+export interface ProjectNgram {
+  ngram: VocabularyNGram[];
+}

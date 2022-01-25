@@ -1,7 +1,7 @@
 import { SupportedFeature } from './model.js';
 
 function isFeature(value: string): value is SupportedFeature {
-  return ['md', 'md+mermaid'].includes(value);
+  return ['md', 'internal', 'ngram'].includes(value);
 }
 const toFeature = (feature: string): SupportedFeature => {
   if (isFeature(feature)) {

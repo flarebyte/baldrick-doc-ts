@@ -59,9 +59,10 @@
     "h": "cat commands.txt",
     "norm": "npx baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT && yarn md:fix",
     "norm:g": "baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT && yarn md:fix",
-    "doc:int": "baldrick-doc-ts parse -f md+mermaid"
+    "doc:int": "baldrick-doc-ts parse -f internal ngram"
   },
   "dependencies": {
+    "markdown-table": "^3.0.2",
     "ts-morph": "13.0.3"
   },
   "devDependencies": {

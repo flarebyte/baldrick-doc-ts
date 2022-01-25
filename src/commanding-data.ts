@@ -53,10 +53,10 @@ const featureParser: CmdOption = {
   shortFlag: 'f',
   longFlag: 'feature',
   description: 'List of features',
-  choices: ['md+mermaid'],
+  choices: ['internal', 'ngram'],
   mandatory: false,
   variadic: true,
-  defaultValue: ['md'],
+  defaultValue: ['internal', 'ngram'],
 };
 
 export const cmdOptionsParser: CmdOptionsParser = {

@@ -47,6 +47,15 @@ class `fp-diagram.ts`{
   - noDuplicateRelationshipDiagram()
   +toFunctionalProgrammingMermaid()
 }
+class `fp-vocabulary.ts`{
+  - extractWordsFromName()
+  - asVocabulary()
+  - extractSource()
+  +toProjectVocabulary()
+  - convertToNgram()
+  - byCountDesc()
+  +toProjectVocabularyRank()
+}
 class `index.ts`
 class `io-sfx.ts`{
   - readTypedocJson()
@@ -65,6 +74,11 @@ class `markdown-api.ts`{
 class `markdown-internal.ts`{
   +toMarkdownInternal()
 }
+class `markdown-vocabulary.ts`{
+  +toVocabularyTable()
+  +toVocabularyRankTable()
+  +toMarkdownVocabulary()
+}
 class `markdown.ts`{
   - findHeader()
   - getMainSection()
@@ -80,7 +94,7 @@ class `markdown.ts`{
 class `model.ts`
 class `parse-action.ts`{
   - createDocDir()
-  - generateInternalMd()
+  - generateMarkdowns()
   +parseAction()
 }
 class `parser-model.ts`
@@ -96,6 +110,8 @@ class `ts-parser.ts`{
   - toUniqueStringArray()
   - extractFunctionInfo()
   - extractFunctionExpressionInfo()
+  - extractInterfaceInfo()
+  - extractTypeAliasInfo()
   +createProject()
   - isFunctionInfo()
   +parseTsContent()
@@ -161,8 +177,13 @@ class `./version.js`{
 class `./parser-model.js`{
   +SourceInfo()
   +ModuleInfo()
+  +InterfaceInfo()
   +ImportInfo()
   +FunctionInfo()
+  +ProjectVocabulary()
+  +ProjectNgram()
+  +VocabularyNGram()
+  +Vocabulary()
   +FunctionDiagram()
   +RelationshipDiagram()
   +SourceDiagram()
@@ -195,14 +216,26 @@ class `./fp-diagram.js`{
   +toFunctionalProgrammingMermaid()
   +toFunctionalProgrammingDiagram()
 }
+class `markdown-table`{
+  +markdownTable()
+}
+class `./fp-vocabulary.js`{
+  +toProjectVocabularyRank()
+  +toProjectVocabulary()
+}
 class `./markdown-internal.js`{
   +toMarkdownInternal()
+}
+class `./markdown-vocabulary.js`{
+  +toMarkdownVocabulary()
 }
 class `./ts-parser.js`{
   +parseProject()
   +createProject()
 }
 class `ts-morph`{
+  +TypeAliasDeclaration()
+  +InterfaceDeclaration()
   +VariableDeclaration()
   +FunctionDeclaration()
   +ImportDeclaration()
@@ -227,6 +260,7 @@ class `ts-morph`{
 `commanding.ts`-->`./version.js`
 `feature-helper.ts`-->`./model.js`
 `fp-diagram.ts`-->`./parser-model.js`
+`fp-vocabulary.ts`-->`./parser-model.js`
 `index.ts`-->`./commanding-action.js`
 `index.ts`-->`./commanding.js`
 `io-sfx.ts`-->`node:fs/promises`
@@ -240,9 +274,15 @@ class `ts-morph`{
 `markdown-internal.ts`-->`./markdown.js`
 `markdown-internal.ts`-->`./model.js`
 `markdown-internal.ts`-->`./parser-model.js`
+`markdown-vocabulary.ts`-->`markdown-table`
+`markdown-vocabulary.ts`-->`./fp-vocabulary.js`
+`markdown-vocabulary.ts`-->`./markdown.js`
+`markdown-vocabulary.ts`-->`./model.js`
+`markdown-vocabulary.ts`-->`./parser-model.js`
 `markdown.ts`-->`./model.js`
 `parse-action.ts`-->`node:fs/promises`
 `parse-action.ts`-->`./markdown-internal.js`
+`parse-action.ts`-->`./markdown-vocabulary.js`
 `parse-action.ts`-->`./model.js`
 `parse-action.ts`-->`./ts-parser.js`
 `term-formatter.ts`-->`./model.js`
