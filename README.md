@@ -1,4 +1,4 @@
-# Baldrick-doc-ts
+# baldrick-doc-ts
 
 ![npm](https://img.shields.io/npm/v/baldrick-doc-ts) ![Build
 status](https://github.com/flarebyte/baldrick-doc-ts/actions/workflows/main.yml/badge.svg)
@@ -10,8 +10,11 @@ status](https://github.com/flarebyte/baldrick-doc-ts/actions/workflows/main.yml/
 
 > Documentation generator for typescript projects
 
-The main motivation is to streamline the generation of documentation for
-node.js libraries written in Typescript:
+Generation of documentation for node.js libraries written in Typescript
+
+Highlights:
+
+-   Written in `Typescript`
 
 -   It relies on [typedoc](https://typedoc.org/s) under the hood.
 
@@ -25,62 +28,6 @@ node.js libraries written in Typescript:
 -   It is part of the `baldrick` suite of tools, and is optimized to work
     alongside these.
 
-## Usage
-
-Generate typedoc documentation
-
-`npx baldrick-doc-ts typedoc [options]`
-
-Typical use:
-
-`npx typedoc --json doc.json --pretty src/index.ts && npx baldrick-doc-ts
-typedoc --json-source doc.json`
-
-It is recommended to add it a script in your `package.json`
-
-### Options
-
-Generate typedoc documentation as markdown
-
-```bash
-Usage: baldrick-doc-ts typedoc [options]
-
-Generate typedoc documentation
-
-Options:
-  - f, --feature [feature...]           List of features (choices: "md",
-                                       default: ["md"])
-  - s, --json-source [jsonSource]       Typedoc json filename (default:
-                                       "doc.json")
-  - db, --doc-base [docBase]            Specify the base name for
-documentation
-                                       (doc/api) (default: "")
-  - sd, --src-directory [srcDirectory]  Directory of the source code that
-will
-                                       be used for links (default: "src")
-  - h, --help                           display help for command
-```
-
-Generate diagram of internal code base
-
-```bash
-Usage: baldrick-doc-ts parse [options]
-
-Parse typescript and extract documentation
-
-Options:
-  - f, --feature [feature...]           List of features (choices:
-"internal",
-                                       "ngram", default: ["internal","ngram"])
-  - db, --doc-base [docBase]            Specify the base name for
-documentation
-                                       (doc/api) (default: "")
-  - sd, --src-directory [srcDirectory]  Directory of the source code that
-will
-                                       be used for links (default: "src")
-  - h, --help                           display help for command
-```
-
 ## Documentation and links
 
 -   [Code Maintenance](MAINTENANCE.md)
@@ -88,8 +35,17 @@ will
 -   [Api for baldrick-doc-ts](API.md)
 -   [Contributing](CONTRIBUTING.md)
 -   [Glossary](GLOSSARY.md)
+-   [Diagram for the code base](INTERNAL.md)
+-   [Vocabulary used in the code base](CODE_VOCABULARY.md)
+-   [Architectural Decision Records](DECISIONS.md)
 -   [Contributors](https://github.com/flarebyte/baldrick-doc-ts/graphs/contributors)
 -   [Dependencies](https://github.com/flarebyte/baldrick-doc-ts/network/dependencies)
+-   [Usage](USAGE.md)
+
+## Related
+
+-   [baldrick-zest-engine](https://github.com/flarebyte/baldrick-zest-engine)
+    Run tests declaratively with a few cunning plans
 
 ## Installation
 
