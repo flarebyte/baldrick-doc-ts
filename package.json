@@ -45,6 +45,7 @@
     "spec": "node --loader ts-node/esm .baldrick-zest.ts"
   },
   "dependencies": {
+    "commander": "^10.0.0",
     "markdown-table": "^3.0.3",
     "ts-morph": "^17.0.1"
   },
