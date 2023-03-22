@@ -1,0 +1,16 @@
+---
+title: baldrick-doc-ts
+description: Acceptance testing of baldrick-doc-ts CLI application
+cases:
+  typedoc:
+    title: Generate markdown files for the from a typedoc json file
+    steps:
+      - title: Generate markdown
+        run: yarn cli typedoc --json-source pest-spec/fixture/typedoc.json
+      - title: Remove changing info from output
+        run: sed -f pest-spec/scripts/cleaning.sed
+        stdin:
+          step: 0
+          receiving: stdout + stderr
+        expect:
+          snapshot: typedoc.md
