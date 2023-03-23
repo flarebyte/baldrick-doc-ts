@@ -22,9 +22,14 @@ jobs:
       - name: Installation
         run: yarn install
       - name: Run zest unit tests
-        run: npx baldrick-broth test spec
+        if: 'contains(run(), "spec")'
+        run: node --loader ts-node/esm .baldrick-zest.ts
       - name: Run pest integration tests
-        run: npx baldrick-broth test pest
+        if: 'contains(run(), "pest-spec")'
+        run: |
+          for file in $(find pest-spec -name '*.pest.yaml'); do
+            npx baldrick-pest@latest test --spec-file $file
+          done
       - name: Build
         run: yarn build
       - name: Test Report
