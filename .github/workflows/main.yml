@@ -21,6 +21,8 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Installation
         run: yarn install
+      - name: Create temp folder
+        run: mkdir temp
       - name: Run zest unit tests
         run: |
           if [ -d "folder-name" ]; then
