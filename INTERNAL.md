@@ -98,7 +98,7 @@ class `parse-action.ts`{
 }
 class `parser-model.ts`
 class `term-formatter.ts`{
-  -simplifyObj()
+  -simplifyObject()
   -simplifyJson()
   -toJsonish()
   +basicFormatter()
@@ -125,22 +125,22 @@ class `./io-sfx.js`{
   +updateAll()
 }
 class `./model.js`{
-  +TermFormatterParams()
-  +TermFormatterFormat()
-  +ErrTermFormatterParams()
-  +RunnerContext()
-  +ParseActionOpts()
-  +MdSection()
-  +MdDocument()
-  +GenerateTypedocActionOpts()
-  +SupportedFeature()
-  +ParseRawOpts()
-  +ParseAction()
-  +GenerateTypedocRawOpts()
-  +GenerateTypedocAction()
-  +CmdOption()
-  +CmdOptionsParser()
-  +CmdOptionsGeneratorTypedoc()
+  +type TermFormatterParams()
+  +type TermFormatterFormat()
+  +type ErrTermFormatterParams()
+  +type RunnerContext()
+  +type ParseActionOpts()
+  +type MdSection()
+  +type MdDocument()
+  +type GenerateTypedocActionOpts()
+  +type SupportedFeature()
+  +type ParseRawOpts()
+  +type ParseAction()
+  +type GenerateTypedocRawOpts()
+  +type GenerateTypedocAction()
+  +type CmdOption()
+  +type CmdOptionsParser()
+  +type CmdOptionsGeneratorTypedoc()
 }
 class `./parse-action.js`{
   +parseAction()
@@ -174,19 +174,19 @@ class `./version.js`{
   +version()
 }
 class `./parser-model.js`{
-  +SourceInfo()
-  +ModuleInfo()
-  +InterfaceInfo()
-  +ImportInfo()
-  +FunctionInfo()
-  +ProjectVocabulary()
-  +ProjectNgram()
-  +VocabularyNGram()
-  +Vocabulary()
-  +FunctionDiagram()
-  +RelationshipDiagram()
-  +SourceDiagram()
-  +FunctionalProgrammingDiagram()
+  +type SourceInfo()
+  +type ModuleInfo()
+  +type InterfaceInfo()
+  +type ImportInfo()
+  +type FunctionInfo()
+  +type ProjectVocabulary()
+  +type ProjectNgram()
+  +type VocabularyNGram()
+  +type Vocabulary()
+  +type FunctionDiagram()
+  +type RelationshipDiagram()
+  +type SourceDiagram()
+  +type FunctionalProgrammingDiagram()
 }
 class `./commanding-action.js`{
   +cmdParseAction()
@@ -204,9 +204,9 @@ class `./markdown-api.js`{
   +toTypedocApiMd()
 }
 class `./typedoc-json-model.js`{
-  +TypedocJson()
-  +TypedocChild()
-  +Parameter()
+  +type TypedocJson()
+  +type TypedocChild()
+  +type Parameter()
 }
 class `./markdown.js`{
   +markdownToString()
@@ -233,12 +233,12 @@ class `./ts-parser.js`{
   +createProject()
 }
 class `ts-morph`{
-  +TypeAliasDeclaration()
-  +InterfaceDeclaration()
-  +VariableDeclaration()
-  +FunctionDeclaration()
-  +ImportDeclaration()
-  +SourceFile()
+  +type TypeAliasDeclaration()
+  +type InterfaceDeclaration()
+  +type VariableDeclaration()
+  +type FunctionDeclaration()
+  +type ImportDeclaration()
+  +type SourceFile()
   +Project()
 }
 `client.ts`-->`./index.js`
