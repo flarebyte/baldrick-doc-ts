@@ -22,10 +22,13 @@ jobs:
       - name: Installation
         run: yarn install
       - name: Run zest unit tests
-        if: 'contains(run(), "spec")'
-        run: node --loader ts-node/esm .baldrick-zest.ts
+        run: |
+          if [ -d "folder-name" ]; then
+            node --loader ts-node/esm .baldrick-zest.ts
+          else
+            echo "No zest files. Skipping"
+          fi
       - name: Run pest integration tests
-        if: 'contains(run(), "pest-spec")'
         run: |
           for file in $(find pest-spec -name '*.pest.yaml'); do
             npx baldrick-pest@latest test --spec-file $file
