@@ -3,7 +3,7 @@ model:
   project:
     title: Documentation generator for typescript projects
     description: Generation of documentation for node.js libraries written in Typescript
-    version: 0.9.0
+    version: 0.10.0
     keywords:
       - CLI
   readme:
@@ -330,7 +330,7 @@ workflows:
               run: yarn audit
             - name: rm-report
               title: Remove previous report
-              run: rm -f .github/PULL_REQUEST_TEMPLATE/pull_request_relevant.md
+              run: rm -f temp/pull_request_relevant.md
             - name: report
               a: template
               title: Create a report
@@ -349,7 +349,7 @@ workflows:
               a: append-to-file
               title: Write the report
               value: data.report
-              filename: .github/PULL_REQUEST_TEMPLATE/pull_request_relevant.md
+              filename: temp/pull_request_relevant.md
       publish:
         title: Publish the current library
         description: Publih the current library to npm
