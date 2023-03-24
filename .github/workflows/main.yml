@@ -23,18 +23,22 @@ jobs:
         run: yarn install
       - name: Create temp folder
         run: mkdir temp
+      - name: Check if sed exists
+        run: which sed
       - name: Run zest unit tests
         run: |
-          if [ -d "folder-name" ]; then
-            node --loader ts-node/esm .baldrick-zest.ts
+          if [ -d "spec" ]; then
+            npx npx baldrick-broth@latest test spec
           else
             echo "No zest files. Skipping"
           fi
       - name: Run pest integration tests
         run: |
-          for file in $(find pest-spec -name '*.pest.yaml'); do
-            npx baldrick-pest@latest test --spec-file $file
-          done
+          if [ -d "pest-spec" ]; then
+            npx npx baldrick-broth@latest test pest
+          else
+            echo "No pest files. Skipping"
+          fi
       - name: Build
         run: yarn build
       - name: Test Report
