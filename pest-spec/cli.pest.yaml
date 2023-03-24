@@ -5,7 +5,7 @@ cases:
   typedoc:
     title: Generate markdown files for the from a typedoc json file
     steps:
-      - title: Generate markdown
+      - title: Generate markdown using typedoc input
         run: yarn cli typedoc --json-source pest-spec/fixture/typedoc.json --doc-base temp/PEST
       - title: Save the markdown API file
         run: cat temp/PEST_API.md
@@ -18,9 +18,9 @@ cases:
     title: Generate with a list of ngram from source code
     steps:
       - title: Generate some markdown files with ngram
-        run: yarn cli parse --feature internal ngram
+        run: yarn cli parse --feature internal ngram --doc-base temp/PEST
       - title: Save the markdown internal file
-        run: cat INTERNAL.md
+        run: cat temp/PEST_INTERNAL.md
         stdin:
           step: 0
           receiving: stdout

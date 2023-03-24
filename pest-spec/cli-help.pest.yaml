@@ -5,9 +5,9 @@ cases:
   general-help:
     title: Display general help
     steps:
-      - title: run help
+      - title: Run help
         run: yarn cli --help
-      - title: Remove changing info from output
+      - title: Discard changing info for help
         run: sed -f pest-spec/scripts/cleaning.sed
         stdin:
           step: 0
@@ -17,9 +17,9 @@ cases:
   typedoc-help:
     title: Display help for a specific command
     steps:
-      - title: run help test typedoc
+      - title: Run help test typedoc
         run: yarn cli typedoc --help
-      - title: Remove changing info from output
+      - title: Discard changing info for typedoc help 
         run: sed -f pest-spec/scripts/cleaning.sed
         stdin:
           step: 0
@@ -29,9 +29,9 @@ cases:
   parse-help:
     title: Display help for a specific command
     steps:
-      - title: run help test parse
+      - title: Run help test parse
         run: yarn cli parse --help
-      - title: Remove changing info from output
+      - title: Discard changing info for parse help 
         run: sed -f pest-spec/scripts/cleaning.sed
         stdin:
           step: 0
