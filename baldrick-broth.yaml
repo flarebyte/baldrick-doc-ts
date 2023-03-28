@@ -382,8 +382,8 @@ workflows:
                 {{#if _.result-of-markdown}}- :heavy_check_mark:{{else}}- :heavy_exclamation_mark:{{/if}} Markdown formatting
                 {{#if _.result-of-outdated}}- :heavy_check_mark:{{else}}- :heavy_exclamation_mark:{{/if}} No outdated NPM libraries
                 {{#if _.result-of-audit}}- :heavy_check_mark:{{else}}- :heavy_exclamation_mark:{{/if}} Security audit
-                {{#if _.result-of-pest}}- :heavy_check_mark:{{else}}- :heavy_exclamation_mark:{{/if}} Integration tests with baldrick-pest
-                {{#if _.result-of-zest}}- :heavy_check_mark:{{else}}- :heavy_exclamation_mark:{{/if}} Unit tests with baldrick-zest
+                {{#if _.result-of-pest}}- :heavy_check_mark:{{else}}- :heavy_exclamation_mark:{{/if}} Integration tests with baldrick-pest {{#unless _.should-run-pest}}(Not supported yet){{/unless}}
+                {{#if _.result-of-zest}}- :heavy_check_mark:{{else}}- :heavy_exclamation_mark:{{/if}} Unit tests with baldrick-zest {{#unless _.should-run-zest}}(Not supported yet){{/unless}}
             - name: write-report
               a: append-to-file
               title: Write the report
