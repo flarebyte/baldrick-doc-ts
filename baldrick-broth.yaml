@@ -302,6 +302,11 @@ workflows:
           Run a sequence of commands to check that the library is ready to be
           published
         motivation: Detect quality flaws before pushing the code
+        parameters:
+          - description: |
+              Pull request mode.
+              Run the pest and zest tests.
+            flags: -pr, --pull-request
         main:
           commands:
             - name: remove-build
@@ -328,9 +333,31 @@ workflows:
             - name: audit
               title: Audit some libraries
               run: yarn audit
+            - name: has-pest-files
+              title: Check if there are any pest files
+              run: find . -type f -name *.pest.yaml
+              onSuccess:
+                - save
+                - silent
+            - a: every-truthy
+              name: should-run-pest
+              title: Is this a PR and is there some pest files
+              values:
+                - data.has-pest-files
+                - runtime.parameters.pullRequest
+            - name: pest
+              title: Run the integration pest tests
+              if: data.should-run-pest
+              run: npx baldrick-broth@latest test pest
+            - name: zest
+              title: Run the unit zest tests
+              if: runtime.parameters.pullRequest
+              run: npx npx baldrick-broth@latest test spec
             - name: rm-report
               title: Remove previous report
               run: rm -f temp/pull_request_relevant.md
+              onSuccess:
+                - debug
             - name: report
               a: template
               title: Create a report
@@ -345,6 +372,8 @@ workflows:
                 {{#if _.result-of-markdown}}- :heavy_check_mark:{{else}}- :heavy_exclamation_mark:{{/if}} Markdown formatting
                 {{#if _.result-of-outdated}}- :heavy_check_mark:{{else}}- :heavy_exclamation_mark:{{/if}} No outdated NPM libraries
                 {{#if _.result-of-audit}}- :heavy_check_mark:{{else}}- :heavy_exclamation_mark:{{/if}} Security audit
+                {{#if _.result-of-pest}}- :heavy_check_mark:{{else}}- :heavy_exclamation_mark:{{/if}} Integration tests with baldrick-pest
+                {{#if _.result-of-zest}}- :heavy_check_mark:{{else}}- :heavy_exclamation_mark:{{/if}} Unit tests with baldrick-zest
             - name: write-report
               a: append-to-file
               title: Write the report
