@@ -349,15 +349,25 @@ workflows:
               title: Run the integration pest tests
               if: data.should-run-pest
               run: npx baldrick-broth@latest test pest
+            - name: has-zest-files
+              title: Check if there are any zest files
+              run: find . -type f -name *.zest.yaml
+              onSuccess:
+                - save
+                - silent
+            - a: every-truthy
+              name: should-run-zest
+              title: Is this a PR and is there some zest files
+              values:
+                - data.has-zest-files
+                - runtime.parameters.pullRequest
             - name: zest
               title: Run the unit zest tests
-              if: runtime.parameters.pullRequest
+              if: data.should-run-zest
               run: npx npx baldrick-broth@latest test spec
             - name: rm-report
               title: Remove previous report
               run: rm -f temp/pull_request_relevant.md
-              onSuccess:
-                - debug
             - name: report
               a: template
               title: Create a report
