@@ -1,102 +1,102 @@
 export type SupportedFeature = 'md' | 'internal' | 'ngram';
 
-export interface GenerateTypedocActionOpts {
-  feature: SupportedFeature[];
-  jsonSource: string;
-  docBase: string;
-  docPrefix: string;
-  docDirectory: string;
-  srcDirectory: string;
-  homepage?: string;
-}
+export type GenerateTypedocActionOpts = {
+	feature: SupportedFeature[];
+	jsonSource: string;
+	docBase: string;
+	docPrefix: string;
+	docDirectory: string;
+	srcDirectory: string;
+	homepage?: string;
+};
 
-export interface ParseActionOpts {
-  feature: SupportedFeature[];
-  docBase: string;
-  docPrefix: string;
-  docDirectory: string;
-  srcDirectory: string;
-  packageName: string;
-}
+export type ParseActionOpts = {
+	feature: SupportedFeature[];
+	docBase: string;
+	docPrefix: string;
+	docDirectory: string;
+	srcDirectory: string;
+	packageName: string;
+};
 
-export interface GenerateTypedocRawOpts {
-  feature: string[];
-  jsonSource: string;
-  docBase: string;
-  srcDirectory: string;
-}
+export type GenerateTypedocRawOpts = {
+	feature: string[];
+	jsonSource: string;
+	docBase: string;
+	srcDirectory: string;
+};
 
-export interface ParseRawOpts {
-  feature: string[];
-  docBase: string;
-  srcDirectory: string;
-}
+export type ParseRawOpts = {
+	feature: string[];
+	docBase: string;
+	srcDirectory: string;
+};
 
-export interface CmdOptionsGeneratorTypedoc {
-  feature: CmdOption;
-  jsonSource: CmdOption;
-  docBase: CmdOption;
-  srcDirectory: CmdOption;
-}
+export type CmdOptionsGeneratorTypedoc = {
+	feature: CmdOption;
+	jsonSource: CmdOption;
+	docBase: CmdOption;
+	srcDirectory: CmdOption;
+};
 
-export interface CmdOptionsParser {
-  feature: CmdOption;
-  docBase: CmdOption;
-  srcDirectory: CmdOption;
-}
+export type CmdOptionsParser = {
+	feature: CmdOption;
+	docBase: CmdOption;
+	srcDirectory: CmdOption;
+};
 
-export interface MdSection {
-  title: string;
-  body: string;
-}
+export type MdSection = {
+	title: string;
+	body: string;
+};
 
-export interface MdDocument {
-  title: string;
-  description: string;
-  mainSection: string;
-  sections: MdSection[];
-}
+export type MdDocument = {
+	title: string;
+	description: string;
+	mainSection: string;
+	sections: MdSection[];
+};
 
-export interface CmdOption {
-  shortFlag: string;
-  longFlag: string;
-  description: string;
-  defaultValue?: string | string[];
-  choices: string[];
-  mandatory: boolean;
-  variadic: boolean;
-}
+export type CmdOption = {
+	shortFlag: string;
+	longFlag: string;
+	description: string;
+	defaultValue?: string | string[];
+	choices: string[];
+	mandatory: boolean;
+	variadic: boolean;
+};
 type TermFormatterKind = 'intro' | 'info';
 export type TermFormatterFormat = 'default' | 'human';
 
-export interface TermFormatterParams {
-  title: string;
-  detail: string | object;
-  kind: TermFormatterKind;
-  format: TermFormatterFormat;
-}
+export type TermFormatterParams = {
+	title: string;
+	detail: string | Record<string, unknown>;
+	kind: TermFormatterKind;
+	format: TermFormatterFormat;
+};
 
-export interface ErrTermFormatterParams {
-  title: string;
-  detail: unknown;
-}
+export type ErrTermFormatterParams = {
+	title: string;
+	detail: unknown;
+};
 
-export type TermFormatter = (params: TermFormatterParams) => void;
+export type TermFormatter = (parameters: TermFormatterParams) => void;
 
-export type ErrTermFormatter = (params: ErrTermFormatterParams) => void;
+export type ErrTermFormatter = (parameters: ErrTermFormatterParams) => void;
 
-export interface RunnerContext {
-  currentPath: string;
-  termFormatter: TermFormatter;
-  errTermFormatter: ErrTermFormatter;
-}
+export type RunnerContext = {
+	currentPath: string;
+	termFormatter: TermFormatter;
+	errTermFormatter: ErrTermFormatter;
+};
 
 export type GenerateTypedocAction = (
-  ctx: RunnerContext,
-  options: GenerateTypedocActionOpts
+	ctx: RunnerContext,
+	options: GenerateTypedocActionOpts
 ) => Promise<void>;
 
 export type ParseAction = (
-  ctx: RunnerContext,
-  options: ParseActionOpts
+	ctx: RunnerContext,
+	options: ParseActionOpts
 ) => Promise<void>;

@@ -3,16 +3,17 @@
 > Guide for the implementation, including detailed design, priorities,
 > coding conventions, and testing
 
--   This project is part of the `baldrick` suite of tools and should work
-    in synergy with these tools.
+Highlights:
 
 ## Code structure
 
 -   **src**: Typescript source code
 
--   **test**: Jest unit tests
+-   **script**: Folder for bash, python, zx or ts-node scripts
 
 -   **dist**: Temporary folder for building distribution code
+
+-   **temp**: Temporary folder used by some of the tooling (tests...)
 
 -   **report**: Temporary folder for reporting; usually for continuous
     integration

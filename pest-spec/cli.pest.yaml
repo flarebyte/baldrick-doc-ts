@@ -1,0 +1,28 @@
+---
+title: baldrick-doc-ts
+description: Acceptance testing of baldrick-doc-ts CLI application
+cases:
+  typedoc:
+    title: Generate markdown files for the from a typedoc json file
+    steps:
+      - title: Generate markdown using typedoc input
+        run: yarn cli typedoc --json-source pest-spec/fixture/typedoc.json --doc-base temp/PEST
+      - title: Save the markdown API file
+        run: cat temp/PEST_API.md
+        # stdin:
+        #   step: 0
+        #   receiving: stdout
+        # expect:
+        #   snapshot: typedoc.md
+  parse:
+    title: Generate with a list of ngram from source code
+    steps:
+      - title: Generate some markdown files with ngram
+        run: yarn cli parse --feature internal ngram --doc-base temp/PEST
+      - title: Save the markdown internal file
+        run: cat temp/PEST_INTERNAL.md
+        # stdin:
+        #   step: 0
+        #   receiving: stdout
+        # expect:
+        #   snapshot: INTERNAL.md

@@ -1,14 +1,14 @@
 {
   "name": "baldrick-doc-ts",
   "description": "Documentation generator for typescript projects",
-  "keywords": [
-    "cli"
-  ],
-  "version": "0.9.0",
+  "version": "0.10.0",
   "author": {
     "name": "Olivier Huin",
     "url": "https://github.com/olih"
   },
+  "keywords": [
+    "CLI"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/flarebyte/baldrick-doc-ts",
   "repository": {
@@ -16,6 +16,9 @@
     "url": "https://github.com/flarebyte/baldrick-doc-ts.git"
   },
   "bugs": "https://github.com/flarebyte/baldrick-doc-ts/issues",
+  "bin": {
+    "baldrick-doc-ts": "dist/src/cli.mjs"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -32,44 +35,26 @@
     "dist/src",
     "src"
   ],
-  "bin": {
-    "baldrick-doc-ts": "dist/src/cli.mjs"
-  },
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "scripts": {
     "build": "tsc --outDir dist",
-    "doc": "npx typedoc --json report/doc.json --pretty src/index.ts && npx baldrick-doc-ts typedoc --json-source report/doc.json",
-    "github": "gh repo edit --delete-branch-on-merge --enable-squash-merge",
-    "lint:ci": "baldrick lint ci",
-    "lint": "baldrick lint check -s src test",
-    "lint:fix": "baldrick lint fix -s src test",
-    "md": "baldrick markdown check && baldrick markdown check -s .github/",
-    "md:fix": "baldrick markdown fix && baldrick markdown fix -s .github/",
-    "prebuild": "yarn reset",
-    "ready": "yarn lint && yarn test:cov && yarn md && yarn outdated && yarn audit",
-    "reset": "rm -rf dist; rm -rf report",
-    "test:ci": "baldrick test ci",
-    "test": "baldrick test check",
-    "test:cov": "baldrick test cov",
-    "test:fix": "baldrick test fix",
-    "release:check": "baldrick release check",
-    "release:ci": "baldrick release ci",
-    "h": "cat commands.txt",
-    "norm": "npx baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT && yarn md:fix",
-    "norm:g": "baldrick-ts generate -f cli -ga 'flarebyte' -ch 'Flarebyte.com' -cy 2021 -l MIT && yarn md:fix",
-    "doc:int": "baldrick-doc-ts parse -f internal ngram"
+    "test": "node --test --loader ts-node/esm test/*.test.ts",
+    "cli": "node --loader ts-node/esm src/cli.mts",
+    "spec": "node --loader ts-node/esm .baldrick-zest.ts"
   },
   "dependencies": {
-    "markdown-table": "^3.0.2",
-    "ts-morph": "13.0.3"
+    "commander": "^10.0.0",
+    "markdown-table": "^3.0.3",
+    "ts-morph": "^18.0.0"
   },
   "devDependencies": {
-    "baldrick-dev-ts": "0.15.0",
-    "typescript": "^4.5.4"
+    "@types/node": "^18.15.11",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
   },
   "peerDependencies": {
-    "typescript": "4.x"
+    "typescript": "5.x"
   }
 }

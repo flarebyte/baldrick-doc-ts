@@ -1,15 +1,16 @@
-import { SupportedFeature } from './model.js';
+import {type SupportedFeature} from './model.js';
 
 function isFeature(value: string): value is SupportedFeature {
-  return ['md', 'internal', 'ngram'].includes(value);
+	return ['md', 'internal', 'ngram'].includes(value);
 }
+
 const toFeature = (feature: string): SupportedFeature => {
-  if (isFeature(feature)) {
-    return feature;
-  } else {
-    throw new Error(`Internal feature is not supported ${feature}`);
-  }
+	if (isFeature(feature)) {
+		return feature;
+	}
+
+	throw new Error(`Internal feature is not supported ${feature}`);
 };
 
 export const toFeatures = (features: string[]): SupportedFeature[] =>
-  features.map(toFeature);
+	features.map(toFeature);

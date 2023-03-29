@@ -1,0 +1,11 @@
+[2K[1G[2m$ node --loader ts-node/esm src/cli.mts --help[22m
+Usage: cli [options] [command]
+
+Options:
+  -V, --version      output the version number
+  -h, --help         display help for command
+
+Commands:
+  typedoc [options]  Generate typedoc documentation
+  parse [options]    Parse typescript and extract documentation
+  help [command]     display help for command

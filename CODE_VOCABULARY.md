@@ -2,13 +2,11 @@
 
 > Overview of the code base vocabulary for baldrick-doc-ts
 
-This document has been generated automatically by
-[baldrick-doc-ts](https://github.com/flarebyte/baldrick-doc-ts)
+This document has been generated automatically by [baldrick-doc-ts](https://github.com/flarebyte/baldrick-doc-ts)
 
 ## Code base vocabulary
 
 Table of vocabulary found in the code base
-
 | Identifier                        | Word count | Filename               |
 | --------------------------------- | ---------- | ---------------------- |
 | run client                        | 2          | client.ts              |
@@ -66,6 +64,7 @@ Table of vocabulary found in the code base
 | parse markdown                    | 2          | markdown.ts            |
 | section to string                 | 3          | markdown.ts            |
 | markdown to string                | 3          | markdown.ts            |
+| supported feature                 | 2          | model.ts               |
 | generate typedoc action opts      | 4          | model.ts               |
 | parse action opts                 | 3          | model.ts               |
 | generate typedoc raw opts         | 4          | model.ts               |
@@ -75,14 +74,13 @@ Table of vocabulary found in the code base
 | md section                        | 2          | model.ts               |
 | md document                       | 2          | model.ts               |
 | cmd option                        | 2          | model.ts               |
-| term formatter params             | 3          | model.ts               |
-| err term formatter params         | 4          | model.ts               |
-| runner context                    | 2          | model.ts               |
-| supported feature                 | 2          | model.ts               |
 | term formatter kind               | 3          | model.ts               |
 | term formatter format             | 3          | model.ts               |
+| term formatter params             | 3          | model.ts               |
+| err term formatter params         | 4          | model.ts               |
 | term formatter                    | 2          | model.ts               |
 | err term formatter                | 3          | model.ts               |
+| runner context                    | 2          | model.ts               |
 | generate typedoc action           | 3          | model.ts               |
 | parse action                      | 2          | model.ts               |
 | create doc dir                    | 3          | parse-action.ts        |
@@ -101,7 +99,7 @@ Table of vocabulary found in the code base
 | project vocabulary                | 2          | parser-model.ts        |
 | vocabulary ngram                  | 2          | parser-model.ts        |
 | project ngram                     | 2          | parser-model.ts        |
-| simplify obj                      | 2          | term-formatter.ts      |
+| simplify object                   | 2          | term-formatter.ts      |
 | simplify json                     | 2          | term-formatter.ts      |
 | to jsonish                        | 2          | term-formatter.ts      |
 | basic formatter                   | 2          | term-formatter.ts      |
@@ -131,7 +129,6 @@ Table of vocabulary found in the code base
 ## Popularity of sequence of words
 
 Table showing the popularity of some n-gram in the code base
-
 | n-gram       | Frequency |
 | ------------ | --------- |
 | to           | 30        |

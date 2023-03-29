@@ -1,0 +1,40 @@
+---
+title: baldrick-doc-ts help
+description: Acceptance testing of baldrick-doc-ts CLI application
+cases:
+  general-help:
+    title: Display general help
+    steps:
+      - title: Run help
+        run: yarn cli --help
+      - title: Discard changing info for help
+        run: sed -f pest-spec/scripts/cleaning.sed
+        stdin:
+          step: 0
+          receiving: stdout + stderr
+        expect:
+          snapshot: help.txt
+  typedoc-help:
+    title: Display help for a specific command
+    steps:
+      - title: Run help test typedoc
+        run: yarn cli typedoc --help
+      - title: Discard changing info for typedoc help 
+        run: sed -f pest-spec/scripts/cleaning.sed
+        stdin:
+          step: 0
+          receiving: stdout + stderr
+        expect:
+          snapshot: typedoc-help.txt
+  parse-help:
+    title: Display help for a specific command
+    steps:
+      - title: Run help test parse
+        run: yarn cli parse --help
+      - title: Discard changing info for parse help 
+        run: sed -f pest-spec/scripts/cleaning.sed
+        stdin:
+          step: 0
+          receiving: stdout + stderr
+        expect:
+          snapshot: parse-help.txt

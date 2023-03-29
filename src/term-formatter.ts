@@ -1,33 +1,33 @@
 import {
-  ErrTermFormatterParams,
-  TermFormatterFormat,
-  TermFormatterParams,
+	type ErrTermFormatterParams,
+	type TermFormatterFormat,
+	type TermFormatterParams,
 } from './model.js';
 
-const simplifyObj = (obj: object): object => {
-  const values = Object.entries(obj);
-  const relevantValues = values.filter(
-    (keyObj) => !['[]', '', 'null'].includes(`${keyObj[1]}`)
-  );
-  return Object.fromEntries(relevantValues);
+const simplifyObject = (object: Record<string, unknown>): Record<string, unknown> => {
+	const values = Object.entries(object);
+	const relevantValues = values.filter(
+		keyObject => !['[]', '', 'null'].includes(`${keyObject[1]}`),
+	);
+	return Object.fromEntries(relevantValues);
 };
 
 const simplifyJson = (value: string): string => value.replace(/["']/g, ' ');
 
-const toJsonish = (format: TermFormatterFormat, value: object): string =>
-  format === 'human'
-    ? simplifyJson(JSON.stringify(simplifyObj(value)))
-    : JSON.stringify(value);
+const toJsonish = (format: TermFormatterFormat, value: Record<string, unknown>): string =>
+	format === 'human'
+		? simplifyJson(JSON.stringify(simplifyObject(value)))
+		: JSON.stringify(value);
 
-export const basicFormatter = (params: TermFormatterParams) => {
-  const detail =
-    typeof params.detail === 'string'
-      ? params.detail
-      : toJsonish(params.format, params.detail);
+export const basicFormatter = (parameters: TermFormatterParams) => {
+	const detail
+    = typeof parameters.detail === 'string'
+    	? parameters.detail
+    	: toJsonish(parameters.format, parameters.detail);
 
-  console.info(` ★ ${params.title} ⇨`, detail);
+	console.info(` ★ ${parameters.title} ⇨`, detail);
 };
 
-export const errorFormatter = (params: ErrTermFormatterParams) => {
-  console.error(` ★ ${params.title} ⇨`, params.detail);
+export const errorFormatter = (parameters: ErrTermFormatterParams) => {
+	console.error(` ★ ${parameters.title} ⇨`, parameters.detail);
 };

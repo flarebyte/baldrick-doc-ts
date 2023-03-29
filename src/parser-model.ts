@@ -1,70 +1,70 @@
-export interface ImportInfo {
-  identifier: string;
-  from: string;
-}
+export type ImportInfo = {
+	identifier: string;
+	from: string;
+};
 
-export interface FunctionInfo {
-  identifier: string;
-  bodyWidth: number;
-  keywords: string[];
-  description: string;
-  exported: boolean;
-  descendantCount: number;
-  expression: boolean;
-}
+export type FunctionInfo = {
+	identifier: string;
+	bodyWidth: number;
+	keywords: string[];
+	description: string;
+	exported: boolean;
+	descendantCount: number;
+	expression: boolean;
+};
 
-export interface InterfaceInfo {
-  identifier: string;
-  exported: boolean;
-}
+export type InterfaceInfo = {
+	identifier: string;
+	exported: boolean;
+};
 
-export interface SourceInfo {
-  filename: string;
-  imports: ImportInfo[];
-  functions: FunctionInfo[];
-  interfaces: InterfaceInfo[];
-}
+export type SourceInfo = {
+	filename: string;
+	imports: ImportInfo[];
+	functions: FunctionInfo[];
+	interfaces: InterfaceInfo[];
+};
 
-export interface ModuleInfo {
-  name: string;
-  sources: SourceInfo[];
-}
+export type ModuleInfo = {
+	name: string;
+	sources: SourceInfo[];
+};
 
-export interface FunctionDiagram {
-  identifier: string;
-  exported: boolean;
-}
+export type FunctionDiagram = {
+	identifier: string;
+	exported: boolean;
+};
 
-export interface RelationshipDiagram {
-  from: string;
-  to: string;
-}
+export type RelationshipDiagram = {
+	from: string;
+	to: string;
+};
 
-export interface SourceDiagram {
-  filename: string;
-  external: boolean;
-  functions: FunctionDiagram[];
-}
+export type SourceDiagram = {
+	filename: string;
+	external: boolean;
+	functions: FunctionDiagram[];
+};
 
-export interface FunctionalProgrammingDiagram {
-  name: string;
-  entities: SourceDiagram[];
-  relationships: RelationshipDiagram[];
-}
+export type FunctionalProgrammingDiagram = {
+	name: string;
+	entities: SourceDiagram[];
+	relationships: RelationshipDiagram[];
+};
 
-export interface Vocabulary {
-  words: string[];
-  filename: string;
-}
+export type Vocabulary = {
+	words: string[];
+	filename: string;
+};
 
-export interface ProjectVocabulary {
-  vocabulary: Vocabulary[];
-}
+export type ProjectVocabulary = {
+	vocabulary: Vocabulary[];
+};
 
-export interface VocabularyNGram {
-  ngram: string[];
-  count: number;
-}
-export interface ProjectNgram {
-  ngram: VocabularyNGram[];
-}
+export type VocabularyNGram = {
+	ngram: string[];
+	count: number;
+};
+export type ProjectNgram = {
+	ngram: VocabularyNGram[];
+};

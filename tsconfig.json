@@ -1,15 +1,37 @@
 {
-  "extends": "baldrick-tsconfig-es2020",
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "ES2022",
   "compilerOptions": {
-    "module": "es2022",
-    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleDetection": "force",
+    "moduleResolution": "NodeNext",
+    "newLine": "lf",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2022",
+    "useDefineForClassFields": true,
     "diagnostics": true,
-    "extendedDiagnostics": true
+    "extendedDiagnostics": true,
+    "outDir": "dist"
   },
   "ts-node": {
-    "transpileOnly": true,
+    "compilerOptions": {},
     "files": true,
-    "compilerOptions": {}
-  }
+    "transpileOnly": true
+  },
+  "exclude": ["dist"]
 }

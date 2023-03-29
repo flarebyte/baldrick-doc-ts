@@ -1,2 +1,2 @@
 export const getPackageName = (): string =>
-  process.env['npm_package_name'] || 'package';
+	process.env['npm_package_name'] || 'package';
