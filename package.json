@@ -47,10 +47,10 @@
   "dependencies": {
     "commander": "^10.0.0",
     "markdown-table": "^3.0.3",
-    "ts-morph": "^17.0.1"
+    "ts-morph": "^18.0.0"
   },
   "devDependencies": {
-    "@types/node": "^18.15.10",
+    "@types/node": "^18.15.11",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2"
   },
