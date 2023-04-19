@@ -21,8 +21,8 @@ cases:
         run: yarn cli parse --feature internal ngram --doc-base temp/PEST
       - title: Save the markdown internal file
         run: cat temp/PEST_INTERNAL.md
-        # stdin:
-        #   step: 0
-        #   receiving: stdout
-        # expect:
-        #   snapshot: INTERNAL.md
+        stdin:
+          step: 0
+          receiving: stdout
+        expect:
+          snapshot: INTERNAL.md
