@@ -2,13 +2,11 @@
 
 > Overview of the code base vocabulary for baldrick-doc-ts
 
-This document has been generated automatically by
-[baldrick-doc-ts](https://github.com/flarebyte/baldrick-doc-ts)
+This document has been generated automatically by [baldrick-doc-ts](https://github.com/flarebyte/baldrick-doc-ts)
 
 ## Code base vocabulary
 
 Table of vocabulary found in the code base
-
 | Identifier                        | Word count | Filename               |
 | --------------------------------- | ---------- | ---------------------- |
 | run client                        | 2          | client.ts              |
@@ -136,7 +134,6 @@ Table of vocabulary found in the code base
 ## Popularity of sequence of words
 
 Table showing the popularity of some n-gram in the code base
-
 | n-gram       | Frequency |
 | ------------ | --------- |
 | to           | 32        |

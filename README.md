@@ -8,6 +8,8 @@ status](https://github.com/flarebyte/baldrick-doc-ts/actions/workflows/main.yml/
 ![node-current](https://img.shields.io/node/v/baldrick-doc-ts)
 ![NPM](https://img.shields.io/npm/l/baldrick-doc-ts)
 
+![Experimental](https://img.shields.io/badge/status-experimental-blue)
+
 > Documentation generator for typescript projects
 
 Generation of documentation for node.js libraries written in Typescript

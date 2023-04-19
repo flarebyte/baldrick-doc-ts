@@ -21,8 +21,28 @@ cases:
         run: yarn cli parse --feature internal ngram --doc-base temp/PEST
       - title: Save the markdown internal file
         run: cat temp/PEST_INTERNAL.md
-        # stdin:
-        #   step: 0
-        #   receiving: stdout
-        # expect:
-        #   snapshot: INTERNAL.md
+        stdin:
+          step: 0
+          receiving: stdout
+        expect:
+          snapshot: INTERNAL.md
+      - title: Save the markdown code vocabulary file
+        run: cat temp/PEST_CODE_VOCABULARY.md
+        stdin:
+          step: 0
+          receiving: stdout
+        expect:
+          snapshot: PEST_CODE_VOCABULARY.md
+  parse-to-csv:
+    title: Generate a csv with internal function from source code
+    steps:
+      - title: Generate csv with functions
+        run: yarn cli parse --feature functions-csv --doc-base temp/pest
+      - title: Save the csv file for functions
+        run: cat temp/pest_internal_functions.csv
+        stdin:
+          step: 0
+          receiving: stdout
+        expect:
+          snapshot: pest_internal_functions.csv
+

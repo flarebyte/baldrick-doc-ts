@@ -5,7 +5,8 @@ Parse typescript and extract documentation
 
 Options:
   -f, --feature [feature...]           List of features (choices: "internal",
-                                       "ngram", default: ["internal","ngram"])
+                                       "functions-csv", "ngram", default:
+                                       ["internal","ngram"])
   -db, --doc-base [docBase]            Specify the base name for documentation
                                        (doc/api) (default: "")
   -sd, --src-directory [srcDirectory]  Directory of the source code that will

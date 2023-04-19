@@ -2,7 +2,8 @@
 
 > Overview of the code base of baldrick-doc-ts
 
-This document has been generated automatically by [baldrick-doc-ts](https://github.com/flarebyte/baldrick-doc-ts)
+This document has been generated automatically by
+[baldrick-doc-ts](https://github.com/flarebyte/baldrick-doc-ts)
 
 ## Diagram of the dependencies
 
@@ -17,57 +18,63 @@ class `commanding-action.ts`{
 }
 class `commanding-data.ts`
 class `commanding-helper.ts`{
-  -capitalize()
-  -decapitalize()
+  - capitalize()
+  - decapitalize()
   +toCamelCase()
   +toCommanderOption()
   +splitDocBase()
 }
 class `commanding.ts`
+class `csv-internal.ts`{
+  - getKeywords()
+  - fromFunctionInfo()
+  - sortedByFunction()
+  +toCsvFonctions()
+}
 class `env-helper.ts`{
   +getPackageName()
 }
 class `feature-helper.ts`{
-  -isFeature()
-  -toFeature()
+  - isFeature()
+  - toFeature()
   +toFeatures()
 }
 class `fp-diagram.ts`{
-  -functionInfoToDiagram()
-  -importInfoToDiagrams()
-  -importInfoToRelationships()
+  - functionInfoToDiagram()
+  - importInfoToDiagrams()
+  - importInfoToRelationships()
   +toFunctionalProgrammingDiagram()
-  -functionToMermaid()
-  -entityToMermaid()
-  -relationshipToMermaid()
-  -noDuplicateFunctionDiagram()
-  -mergeFunctionDiagrams()
+  - functionToMermaid()
+  - entityToMermaid()
+  - relationshipToMermaid()
+  - noDuplicateFunctionDiagram()
+  - mergeFunctionDiagrams()
   +mergeSourceDiagrams()
-  -noDuplicateRelationshipDiagram()
+  - noDuplicateRelationshipDiagram()
   +toFunctionalProgrammingMermaid()
 }
 class `fp-vocabulary.ts`{
-  -extractWordsFromName()
-  -asVocabulary()
-  -extractSource()
+  - extractWordsFromName()
+  - asVocabulary()
+  - extractSource()
   +toProjectVocabulary()
-  -convertToNgram()
-  -byCountDesc()
+  - convertToNgram()
+  - byCountDesc()
   +toProjectVocabularyRank()
 }
 class `index.ts`
 class `io-sfx.ts`{
-  -readTypedocJson()
-  -writeApiMd()
-  -createDocDir()
+  - readTypedocJson()
+  - writeApiMd()
+  - createDocDir()
   +updateAll()
 }
 class `markdown-api.ts`{
-  -apiFilename()
-  -parameterToString()
-  -functionToMdSection()
-  -variableToMdSection()
-  -titleToRef()
+  - apiFilename()
+  - parameterToString()
+  - functionToMdSection()
+  - variableToMdSection()
+  - titleToRef()
   +toTypedocApiMd()
 }
 class `markdown-internal.ts`{
@@ -79,40 +86,40 @@ class `markdown-vocabulary.ts`{
   +toMarkdownVocabulary()
 }
 class `markdown.ts`{
-  -findHeader()
-  -getMainSection()
-  -discardHeader2()
-  -linesToSection()
-  -detectSecondaryHeader()
-  -getSecondarySections()
-  -keepHeaderBody()
+  - findHeader()
+  - getMainSection()
+  - discardHeader2()
+  - linesToSection()
+  - detectSecondaryHeader()
+  - getSecondarySections()
+  - keepHeaderBody()
   +parseMarkdown()
-  -sectionToString()
+  - sectionToString()
   +markdownToString()
 }
 class `model.ts`
 class `parse-action.ts`{
-  -createDocDir()
-  -generateMarkdowns()
+  - createDocDir()
+  - generateMarkdowns()
   +parseAction()
 }
 class `parser-model.ts`
 class `term-formatter.ts`{
-  -simplifyObject()
-  -simplifyJson()
-  -toJsonish()
+  - simplifyObject()
+  - simplifyJson()
+  - toJsonish()
   +basicFormatter()
   +errorFormatter()
 }
 class `ts-parser.ts`{
-  -extractImportInfo()
-  -toUniqueStringArray()
-  -extractFunctionInfo()
-  -extractFunctionExpressionInfo()
-  -extractInterfaceInfo()
-  -extractTypeAliasInfo()
+  - extractImportInfo()
+  - toUniqueStringArray()
+  - extractFunctionInfo()
+  - extractFunctionExpressionInfo()
+  - extractInterfaceInfo()
+  - extractTypeAliasInfo()
   +createProject()
-  -isFunctionInfo()
+  - isFunctionInfo()
   +parseTsContent()
   +parseProject()
 }
@@ -173,6 +180,9 @@ class `./term-formatter.js`{
 class `./version.js`{
   +version()
 }
+class `papaparse`{
+  +CSV()
+}
 class `./parser-model.js`{
   +type SourceInfo()
   +type ModuleInfo()
@@ -187,6 +197,8 @@ class `./parser-model.js`{
   +type RelationshipDiagram()
   +type SourceDiagram()
   +type FunctionalProgrammingDiagram()
+  +ModuleInfo()
+  +FunctionInfo()
 }
 class `./commanding-action.js`{
   +cmdParseAction()
@@ -232,6 +244,9 @@ class `./ts-parser.js`{
   +parseProject()
   +createProject()
 }
+class `./csv-internal.js`{
+  +toCsvFonctions()
+}
 class `ts-morph`{
   +type TypeAliasDeclaration()
   +type InterfaceDeclaration()
@@ -257,6 +272,8 @@ class `ts-morph`{
 `commanding.ts`-->`./model.js`
 `commanding.ts`-->`./term-formatter.js`
 `commanding.ts`-->`./version.js`
+`csv-internal.ts`-->`papaparse`
+`csv-internal.ts`-->`./parser-model.js`
 `feature-helper.ts`-->`./model.js`
 `fp-diagram.ts`-->`./parser-model.js`
 `fp-vocabulary.ts`-->`./parser-model.js`
@@ -284,6 +301,7 @@ class `ts-morph`{
 `parse-action.ts`-->`./markdown-vocabulary.js`
 `parse-action.ts`-->`./model.js`
 `parse-action.ts`-->`./ts-parser.js`
+`parse-action.ts`-->`./csv-internal.js`
 `term-formatter.ts`-->`./model.js`
 `ts-parser.ts`-->`ts-morph`
 `ts-parser.ts`-->`./parser-model.js`

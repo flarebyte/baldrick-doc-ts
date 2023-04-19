@@ -207,6 +207,16 @@ See also:
 
 ***
 
+### Pull request for the project
+
+> Create a pull request for the branch
+
+**Motivation:** Automate the body of pull request
+
+**Run:** `npx baldrick-broth release pr`
+
+***
+
 ### Publish the current library
 
 > Publih the current library to npm
@@ -246,5 +256,16 @@ See also:
 **Motivation:** Make the project structure consistent and easier to navigate
 
 **Run:** `npx baldrick-broth scaffold norm-package`
+
+***
+
+### Normalize using the custom script
+
+> Normalize the project using a custom script for this project
+
+**Motivation:** Enable an imperative approach for some of normalisation to
+keep the model simple
+
+**Run:** `npx baldrick-broth scaffold custom`
 
 ***
