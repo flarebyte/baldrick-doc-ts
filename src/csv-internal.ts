@@ -10,10 +10,21 @@ interface CsvInternalRow {
 }
 
 const getKeywords = (functionInfo: FunctionInfo): string[] => {
-  const isExpression = functionInfo.expression ? ['expression']: [];
-  const isExported = functionInfo.exported ? ['public']: ['private']
-  return [...isExported, ...isExpression ]
-}
+  const isExpression = functionInfo.expression ? ['expression'] : [];
+  const isExported = functionInfo.exported ? ['public'] : ['private'];
+  const isAsync =
+    functionInfo.keywords.includes('AsyncKeyword') ||
+    functionInfo.keywords.includes('AwaitExpression')
+      ? ['async']
+      : [];
+  const hasFor =
+    functionInfo.keywords.includes('ForOfStatement') ||
+    functionInfo.keywords.includes('ForInStatement') ||
+    functionInfo.keywords.includes('ForStatement')
+      ? ['for']
+      : [];
+  return [...isExported, ...isExpression, ...isAsync, ...hasFor];
+};
 
 const fromFunctionInfo =
   (filename: string) =>
@@ -22,7 +33,7 @@ const fromFunctionInfo =
     functionName: functionInfo.identifier,
     descendantCount: functionInfo.descendantCount,
     bodyWidth: functionInfo.bodyWidth,
-    keywords: getKeywords(functionInfo).join(' ')
+    keywords: getKeywords(functionInfo).join(' '),
   });
 
 const sortedByFunction = (
@@ -41,6 +52,12 @@ export const toCsvFonctions = (module: ModuleInfo): string => {
     )
     .sort(sortedByFunction);
   return CSV.unparse(internalFunctions, {
-    columns: ['functionName', 'bodyWidth', 'descendantCount', 'keywords' ,'filename'],
+    columns: [
+      'functionName',
+      'bodyWidth',
+      'descendantCount',
+      'keywords',
+      'filename',
+    ],
   });
 };
