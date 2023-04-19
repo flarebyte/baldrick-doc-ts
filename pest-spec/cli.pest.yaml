@@ -26,3 +26,11 @@ cases:
           receiving: stdout
         expect:
           snapshot: INTERNAL.md
+      - title: Save the markdown code vocabulary file
+        run: cat temp/PEST_CODE_VOCABULARY.md
+        stdin:
+          step: 0
+          receiving: stdout
+        expect:
+          snapshot: PEST_CODE_VOCABULARY.md
+
