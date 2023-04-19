@@ -6,6 +6,8 @@ interface CsvInternalRow {
     functionName: string,
     descendantCount: number,
     bodyWidth: number
+    description: string,
+    keywords: string
 }
 
 const fromFunctionInfo =
@@ -14,6 +16,8 @@ const fromFunctionInfo =
     functionName: functionInfo.identifier,
     descendantCount: functionInfo.descendantCount,
     bodyWidth: functionInfo.bodyWidth,
+    description: functionInfo.description,
+    keywords: functionInfo.keywords.join(' ')
   });
 
 export const toCsvInternal = (module: ModuleInfo): string => {
