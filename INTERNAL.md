@@ -25,6 +25,12 @@ class `commanding-helper.ts`{
   +splitDocBase()
 }
 class `commanding.ts`
+class `csv-internal.ts`{
+  - getKeywords()
+  - fromFunctionInfo()
+  - sortedByFunction()
+  +toCsvFonctions()
+}
 class `env-helper.ts`{
   +getPackageName()
 }
@@ -174,6 +180,9 @@ class `./term-formatter.js`{
 class `./version.js`{
   +version()
 }
+class `papaparse`{
+  +CSV()
+}
 class `./parser-model.js`{
   +type SourceInfo()
   +type ModuleInfo()
@@ -188,6 +197,8 @@ class `./parser-model.js`{
   +type RelationshipDiagram()
   +type SourceDiagram()
   +type FunctionalProgrammingDiagram()
+  +ModuleInfo()
+  +FunctionInfo()
 }
 class `./commanding-action.js`{
   +cmdParseAction()
@@ -233,6 +244,9 @@ class `./ts-parser.js`{
   +parseProject()
   +createProject()
 }
+class `./csv-internal.js`{
+  +toCsvFonctions()
+}
 class `ts-morph`{
   +type TypeAliasDeclaration()
   +type InterfaceDeclaration()
@@ -258,6 +272,8 @@ class `ts-morph`{
 `commanding.ts`-->`./model.js`
 `commanding.ts`-->`./term-formatter.js`
 `commanding.ts`-->`./version.js`
+`csv-internal.ts`-->`papaparse`
+`csv-internal.ts`-->`./parser-model.js`
 `feature-helper.ts`-->`./model.js`
 `fp-diagram.ts`-->`./parser-model.js`
 `fp-vocabulary.ts`-->`./parser-model.js`
@@ -285,6 +301,7 @@ class `ts-morph`{
 `parse-action.ts`-->`./markdown-vocabulary.js`
 `parse-action.ts`-->`./model.js`
 `parse-action.ts`-->`./ts-parser.js`
+`parse-action.ts`-->`./csv-internal.js`
 `term-formatter.ts`-->`./model.js`
 `ts-parser.ts`-->`ts-morph`
 `ts-parser.ts`-->`./parser-model.js`

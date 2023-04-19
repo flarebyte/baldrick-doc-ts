@@ -19,6 +19,11 @@ Table of vocabulary found in the code base
 | to camel case                     | 3          | commanding-helper.ts   |
 | to commander option               | 3          | commanding-helper.ts   |
 | split doc base                    | 3          | commanding-helper.ts   |
+| get keywords                      | 2          | csv-internal.ts        |
+| from function info                | 3          | csv-internal.ts        |
+| sorted by function                | 3          | csv-internal.ts        |
+| to csv fonctions                  | 3          | csv-internal.ts        |
+| csv internal row                  | 3          | csv-internal.ts        |
 | get package name                  | 3          | env-helper.ts          |
 | is feature                        | 2          | feature-helper.ts      |
 | to feature                        | 2          | feature-helper.ts      |
@@ -134,12 +139,12 @@ Table showing the popularity of some n-gram in the code base
 
 | n-gram       | Frequency |
 | ------------ | --------- |
-| to           | 30        |
+| to           | 32        |
 | to           | 28        |
+| info         | 18        |
 | typedoc      | 17        |
-| info         | 17        |
+| function     | 17        |
 | extract      | 14        |
-| function     | 14        |
 | vocabulary   | 13        |
 | term         | 12        |
 | formatter    | 12        |
@@ -147,11 +152,11 @@ Table showing the popularity of some n-gram in the code base
 | md           | 10        |
 | action       | 9         |
 | parse        | 8         |
+| get          | 8         |
 | source       | 8         |
 | parse        | 8         |
 | generate     | 8         |
 | diagram      | 8         |
-| get          | 6         |
 | function     | 6         |
 | create       | 6         |
 | programming  | 6         |
@@ -179,9 +184,11 @@ Table showing the popularity of some n-gram in the code base
 | header       | 4         |
 | err          | 4         |
 | duplicate    | 4         |
+| csv          | 4         |
 | api          | 4         |
 | rank         | 3         |
 | json         | 3         |
+| internal     | 3         |
 | feature      | 3         |
 | diagrams     | 3         |
 | child        | 3         |
@@ -190,6 +197,7 @@ Table showing the popularity of some n-gram in the code base
 | update       | 2         |
 | title        | 2         |
 | split        | 2         |
+| sorted       | 2         |
 | section      | 2         |
 | run          | 2         |
 | relationship | 2         |
@@ -199,6 +207,7 @@ Table showing the popularity of some n-gram in the code base
 | lines        | 2         |
 | keep         | 2         |
 | generate     | 2         |
+| from         | 2         |
 | find         | 2         |
 | error        | 2         |
 | entity       | 2         |
@@ -230,4 +239,5 @@ Table showing the popularity of some n-gram in the code base
 | count        | 2         |
 | commander    | 2         |
 | camel        | 2         |
+| by           | 2         |
 | alias        | 2         |
