@@ -3,7 +3,7 @@ model:
   project:
     title: Documentation generator for typescript projects
     description: Generation of documentation for node.js libraries written in Typescript
-    version: 0.10.0
+    version: 0.11.0
     keywords:
       - CLI
   readme:

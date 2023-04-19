@@ -25,7 +25,9 @@ class `commanding-helper.ts`{
 }
 class `commanding.ts`
 class `csv-internal.ts`{
+  -getKeywords()
   -fromFunctionInfo()
+  -sortedByFunction()
   +toCsvFonctions()
 }
 class `env-helper.ts`{
