@@ -207,6 +207,16 @@ See also:
 
 ***
 
+### Pull request for the project
+
+> Create a pull request for the branch
+
+**Motivation:** Automate the body of pull request
+
+**Run:** `npx baldrick-broth release pr`
+
+***
+
 ### Publish the current library
 
 > Publih the current library to npm
