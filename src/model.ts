@@ -1,4 +1,4 @@
-export type SupportedFeature = 'md' | 'internal' | 'ngram' | 'internal-csv';
+export type SupportedFeature = 'md' | 'internal' | 'ngram' | 'functions-csv';
 
 export type GenerateTypedocActionOpts = {
 	feature: SupportedFeature[];

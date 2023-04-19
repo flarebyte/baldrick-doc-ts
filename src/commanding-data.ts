@@ -53,7 +53,7 @@ const featureParser: CmdOption = {
 	shortFlag: 'f',
 	longFlag: 'feature',
 	description: 'List of features',
-	choices: ['internal', 'internal-csv', 'ngram'],
+	choices: ['internal', 'functions-csv', 'ngram'],
 	mandatory: false,
 	variadic: true,
 	defaultValue: ['internal', 'ngram'],

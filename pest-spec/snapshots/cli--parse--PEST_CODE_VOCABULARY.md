@@ -17,7 +17,9 @@ Table of vocabulary found in the code base
 | to camel case                     | 3          | commanding-helper.ts   |
 | to commander option               | 3          | commanding-helper.ts   |
 | split doc base                    | 3          | commanding-helper.ts   |
-| to csv internal                   | 3          | csv-internal.ts        |
+| from function info                | 3          | csv-internal.ts        |
+| to csv fonctions                  | 3          | csv-internal.ts        |
+| csv internal row                  | 3          | csv-internal.ts        |
 | get package name                  | 3          | env-helper.ts          |
 | is feature                        | 2          | feature-helper.ts      |
 | to feature                        | 2          | feature-helper.ts      |
@@ -134,10 +136,10 @@ Table showing the popularity of some n-gram in the code base
 | ------------ | --------- |
 | to           | 32        |
 | to           | 28        |
+| info         | 18        |
 | typedoc      | 17        |
-| info         | 17        |
+| function     | 16        |
 | extract      | 14        |
-| function     | 14        |
 | vocabulary   | 13        |
 | term         | 12        |
 | formatter    | 12        |
@@ -177,9 +179,11 @@ Table showing the popularity of some n-gram in the code base
 | header       | 4         |
 | err          | 4         |
 | duplicate    | 4         |
+| csv          | 4         |
 | api          | 4         |
 | rank         | 3         |
 | json         | 3         |
+| internal     | 3         |
 | feature      | 3         |
 | diagrams     | 3         |
 | child        | 3         |
@@ -197,6 +201,7 @@ Table showing the popularity of some n-gram in the code base
 | lines        | 2         |
 | keep         | 2         |
 | generate     | 2         |
+| from         | 2         |
 | find         | 2         |
 | error        | 2         |
 | entity       | 2         |
@@ -220,13 +225,11 @@ Table showing the popularity of some n-gram in the code base
 | name         | 2         |
 | module       | 2         |
 | main         | 2         |
-| internal     | 2         |
 | generator    | 2         |
 | from         | 2         |
 | expression   | 2         |
 | element      | 2         |
 | dir          | 2         |
-| csv          | 2         |
 | count        | 2         |
 | commander    | 2         |
 | camel        | 2         |

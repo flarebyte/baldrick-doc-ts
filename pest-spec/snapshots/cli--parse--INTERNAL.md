@@ -25,7 +25,8 @@ class `commanding-helper.ts`{
 }
 class `commanding.ts`
 class `csv-internal.ts`{
-  +toCsvInternal()
+  -fromFunctionInfo()
+  +toCsvFonctions()
 }
 class `env-helper.ts`{
   +getPackageName()
@@ -194,6 +195,7 @@ class `./parser-model.js`{
   +type SourceDiagram()
   +type FunctionalProgrammingDiagram()
   +ModuleInfo()
+  +FunctionInfo()
 }
 class `./commanding-action.js`{
   +cmdParseAction()
@@ -240,7 +242,7 @@ class `./ts-parser.js`{
   +createProject()
 }
 class `./csv-internal.js`{
-  +toCsvInternal()
+  +toCsvFonctions()
 }
 class `ts-morph`{
   +type TypeAliasDeclaration()

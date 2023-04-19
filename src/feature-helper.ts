@@ -1,7 +1,7 @@
 import { type SupportedFeature } from './model.js';
 
 function isFeature(value: string): value is SupportedFeature {
-  return ['md', 'internal', 'internal-csv', 'ngram'].includes(value);
+  return ['md', 'internal', 'functions-csv', 'ngram'].includes(value);
 }
 
 const toFeature = (feature: string): SupportedFeature => {

@@ -37,12 +37,12 @@ cases:
     title: Generate a csv with internal function from source code
     steps:
       - title: Generate csv with functions
-        run: yarn cli parse --feature internal-csv --doc-base temp/pest
-      - title: Save the markdown internal file
-        run: cat temp/pest_internal.csv
+        run: yarn cli parse --feature functions-csv --doc-base temp/pest
+      - title: Save the csv file for functions
+        run: cat temp/pest_internal_functions.csv
         stdin:
           step: 0
           receiving: stdout
         expect:
-          snapshot: pest_internal.csv
+          snapshot: pest_internal_functions.csv
 
