@@ -6,6 +6,13 @@ interface CsvInternalRow {
   functionName: string;
   descendantCount: number;
   bodyWidth: number;
+  keywords: string;
+}
+
+const getKeywords = (functionInfo: FunctionInfo): string[] => {
+  const isExpression = functionInfo.expression ? ['expression']: [];
+  const isExported = functionInfo.exported ? ['public']: ['private']
+  return [...isExported, ...isExpression ]
 }
 
 const fromFunctionInfo =
@@ -15,6 +22,7 @@ const fromFunctionInfo =
     functionName: functionInfo.identifier,
     descendantCount: functionInfo.descendantCount,
     bodyWidth: functionInfo.bodyWidth,
+    keywords: getKeywords(functionInfo).join(' ')
   });
 
 const sortedByFunction = (
@@ -33,6 +41,6 @@ export const toCsvFonctions = (module: ModuleInfo): string => {
     )
     .sort(sortedByFunction);
   return CSV.unparse(internalFunctions, {
-    columns: ['functionName', 'bodyWidth', 'descendantCount', 'filename'],
+    columns: ['functionName', 'bodyWidth', 'descendantCount', 'keywords' ,'filename'],
   });
 };

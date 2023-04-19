@@ -1,77 +1,78 @@
-functionName,bodyWidth,descendantCount,filename
-apiFilename,122,26,markdown-api.ts
-asVocabulary,162,27,fp-vocabulary.ts
-basicFormatter,248,46,term-formatter.ts
-byCountDesc,292,79,fp-vocabulary.ts
-capitalize,112,34,commanding-helper.ts
-cmdGenerateTypedocAction,316,44,commanding-action.ts
-cmdParseAction,296,44,commanding-action.ts
-convertToNgram,379,92,fp-vocabulary.ts
-createDocDir,227,45,io-sfx.ts
-createDocDir,217,45,parse-action.ts
-createProject,35,5,ts-parser.ts
-decapitalize,114,34,commanding-helper.ts
-detectSecondaryHeader,101,21,markdown.ts
-discardHeader2,67,13,markdown.ts
-entityToMermaid,235,57,fp-diagram.ts
-errorFormatter,123,23,term-formatter.ts
-extractFunctionExpressionInfo,656,107,ts-parser.ts
-extractFunctionInfo,565,94,ts-parser.ts
-extractImportInfo,485,86,ts-parser.ts
-extractInterfaceInfo,165,23,ts-parser.ts
-extractSource,282,53,fp-vocabulary.ts
-extractTypeAliasInfo,165,23,ts-parser.ts
-extractWordsFromName,105,18,fp-vocabulary.ts
-findHeader,137,35,markdown.ts
-fromFunctionInfo,247,33,csv-internal.ts
-functionInfoToDiagram,213,43,fp-diagram.ts
-functionToMdSection,1112,205,markdown-api.ts
-functionToMermaid,110,25,fp-diagram.ts
-generateMarkdowns,1108,169,parse-action.ts
-getMainSection,163,43,markdown.ts
-getPackageName,76,12,env-helper.ts
-getSecondarySections,400,92,markdown.ts
-importInfoToDiagrams,193,42,fp-diagram.ts
-importInfoToRelationships,146,32,fp-diagram.ts
-isFeature,135,19,feature-helper.ts
-isFunctionInfo,99,18,ts-parser.ts
-keepHeaderBody,119,28,markdown.ts
-linesToSection,179,38,markdown.ts
-markdownToString,205,45,markdown.ts
-mergeFunctionDiagrams,143,25,fp-diagram.ts
-mergeSourceDiagrams,465,78,fp-diagram.ts
-noDuplicateFunctionDiagram,227,35,fp-diagram.ts
-noDuplicateRelationshipDiagram,287,45,fp-diagram.ts
-parameterToString,401,90,markdown-api.ts
-parseAction,273,43,parse-action.ts
-parseMarkdown,424,84,markdown.ts
-parseProject,131,26,ts-parser.ts
-parseTsContent,821,127,ts-parser.ts
-readTypedocJson,183,30,io-sfx.ts
-relationshipToMermaid,135,32,fp-diagram.ts
-runClient,266,34,client.ts
-sectionToString,101,23,markdown.ts
-simplifyJson,69,13,term-formatter.ts
-simplifyObject,273,56,term-formatter.ts
-sortedByFunction,209,42,csv-internal.ts
-splitDocBase,212,42,commanding-helper.ts
-titleToRef,158,31,markdown-api.ts
-toCamelCase,103,22,commanding-helper.ts
-toCommanderOption,436,96,commanding-helper.ts
-toCsvFonctions,340,52,csv-internal.ts
-toFeature,174,24,feature-helper.ts
-toFeatures,82,15,feature-helper.ts
-toFunctionalProgrammingDiagram,533,72,fp-diagram.ts
-toFunctionalProgrammingMermaid,359,48,fp-diagram.ts
-toJsonish,186,35,term-formatter.ts
-toMarkdownInternal,659,82,markdown-internal.ts
-toMarkdownVocabulary,1038,106,markdown-vocabulary.ts
-toProjectVocabulary,134,20,fp-vocabulary.ts
-toProjectVocabularyRank,682,152,fp-vocabulary.ts
-toTypedocApiMd,1119,192,markdown-api.ts
-toUniqueStringArray,82,17,ts-parser.ts
-toVocabularyRankTable,251,55,markdown-vocabulary.ts
-toVocabularyTable,313,62,markdown-vocabulary.ts
-updateAll,353,52,io-sfx.ts
-variableToMdSection,955,197,markdown-api.ts
-writeApiMd,284,51,io-sfx.ts
+functionName,bodyWidth,descendantCount,keywords,filename
+apiFilename,122,26,private expression,markdown-api.ts
+asVocabulary,162,27,private expression,fp-vocabulary.ts
+basicFormatter,248,46,public expression,term-formatter.ts
+byCountDesc,292,79,private expression,fp-vocabulary.ts
+capitalize,112,34,private expression,commanding-helper.ts
+cmdGenerateTypedocAction,316,44,public expression,commanding-action.ts
+cmdParseAction,296,44,public expression,commanding-action.ts
+convertToNgram,379,92,private expression,fp-vocabulary.ts
+createDocDir,227,45,private expression,io-sfx.ts
+createDocDir,217,45,private expression,parse-action.ts
+createProject,35,5,public expression,ts-parser.ts
+decapitalize,114,34,private expression,commanding-helper.ts
+detectSecondaryHeader,101,21,private expression,markdown.ts
+discardHeader2,67,13,private expression,markdown.ts
+entityToMermaid,235,57,private expression,fp-diagram.ts
+errorFormatter,123,23,public expression,term-formatter.ts
+extractFunctionExpressionInfo,656,107,private expression,ts-parser.ts
+extractFunctionInfo,565,94,private expression,ts-parser.ts
+extractImportInfo,485,86,private expression,ts-parser.ts
+extractInterfaceInfo,165,23,private expression,ts-parser.ts
+extractSource,282,53,private expression,fp-vocabulary.ts
+extractTypeAliasInfo,165,23,private expression,ts-parser.ts
+extractWordsFromName,105,18,private expression,fp-vocabulary.ts
+findHeader,137,35,private expression,markdown.ts
+fromFunctionInfo,297,42,private expression,csv-internal.ts
+functionInfoToDiagram,213,43,private expression,fp-diagram.ts
+functionToMdSection,1112,205,private expression,markdown-api.ts
+functionToMermaid,110,25,private expression,fp-diagram.ts
+generateMarkdowns,1108,169,private expression,parse-action.ts
+getKeywords,240,43,private expression,csv-internal.ts
+getMainSection,163,43,private expression,markdown.ts
+getPackageName,76,12,public expression,env-helper.ts
+getSecondarySections,400,92,private expression,markdown.ts
+importInfoToDiagrams,193,42,private expression,fp-diagram.ts
+importInfoToRelationships,146,32,private expression,fp-diagram.ts
+isFeature,135,19,private,feature-helper.ts
+isFunctionInfo,99,18,private expression,ts-parser.ts
+keepHeaderBody,119,28,private expression,markdown.ts
+linesToSection,179,38,private expression,markdown.ts
+markdownToString,205,45,public expression,markdown.ts
+mergeFunctionDiagrams,143,25,private expression,fp-diagram.ts
+mergeSourceDiagrams,465,78,public expression,fp-diagram.ts
+noDuplicateFunctionDiagram,227,35,private expression,fp-diagram.ts
+noDuplicateRelationshipDiagram,287,45,private expression,fp-diagram.ts
+parameterToString,401,90,private expression,markdown-api.ts
+parseAction,273,43,public expression,parse-action.ts
+parseMarkdown,424,84,public expression,markdown.ts
+parseProject,131,26,public expression,ts-parser.ts
+parseTsContent,821,127,public expression,ts-parser.ts
+readTypedocJson,183,30,private expression,io-sfx.ts
+relationshipToMermaid,135,32,private expression,fp-diagram.ts
+runClient,266,34,public,client.ts
+sectionToString,101,23,private expression,markdown.ts
+simplifyJson,69,13,private expression,term-formatter.ts
+simplifyObject,273,56,private expression,term-formatter.ts
+sortedByFunction,209,42,private expression,csv-internal.ts
+splitDocBase,212,42,public expression,commanding-helper.ts
+titleToRef,158,31,private expression,markdown-api.ts
+toCamelCase,103,22,public expression,commanding-helper.ts
+toCommanderOption,436,96,public expression,commanding-helper.ts
+toCsvFonctions,352,53,public expression,csv-internal.ts
+toFeature,174,24,private expression,feature-helper.ts
+toFeatures,82,15,public expression,feature-helper.ts
+toFunctionalProgrammingDiagram,533,72,public expression,fp-diagram.ts
+toFunctionalProgrammingMermaid,359,48,public expression,fp-diagram.ts
+toJsonish,186,35,private expression,term-formatter.ts
+toMarkdownInternal,659,82,public expression,markdown-internal.ts
+toMarkdownVocabulary,1038,106,public expression,markdown-vocabulary.ts
+toProjectVocabulary,134,20,public expression,fp-vocabulary.ts
+toProjectVocabularyRank,682,152,public expression,fp-vocabulary.ts
+toTypedocApiMd,1119,192,public expression,markdown-api.ts
+toUniqueStringArray,82,17,private expression,ts-parser.ts
+toVocabularyRankTable,251,55,public expression,markdown-vocabulary.ts
+toVocabularyTable,313,62,public expression,markdown-vocabulary.ts
+updateAll,353,52,public expression,io-sfx.ts
+variableToMdSection,955,197,private expression,markdown-api.ts
+writeApiMd,284,51,private expression,io-sfx.ts
