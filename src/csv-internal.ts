@@ -23,5 +23,13 @@ export const toCsvFonctions = (module: ModuleInfo): string => {
   const internalFunctions = module.sources.flatMap((source) =>
     source.functions.map(fromFunctionInfo(source.filename))
   );
-  return CSV.unparse(internalFunctions);
+  return CSV.unparse(internalFunctions, {
+    columns: [
+      'functionName',
+      'bodyWidth',
+      'descendantCount',
+      'filename',
+      'description',
+    ],
+  });
 };
