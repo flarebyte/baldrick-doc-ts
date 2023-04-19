@@ -17,6 +17,7 @@ Table of vocabulary found in the code base
 | to camel case                     | 3          | commanding-helper.ts   |
 | to commander option               | 3          | commanding-helper.ts   |
 | split doc base                    | 3          | commanding-helper.ts   |
+| to csv internal                   | 3          | csv-internal.ts        |
 | get package name                  | 3          | env-helper.ts          |
 | is feature                        | 2          | feature-helper.ts      |
 | to feature                        | 2          | feature-helper.ts      |
@@ -131,7 +132,7 @@ Table of vocabulary found in the code base
 Table showing the popularity of some n-gram in the code base
 | n-gram       | Frequency |
 | ------------ | --------- |
-| to           | 30        |
+| to           | 32        |
 | to           | 28        |
 | typedoc      | 17        |
 | info         | 17        |
@@ -219,11 +220,13 @@ Table showing the popularity of some n-gram in the code base
 | name         | 2         |
 | module       | 2         |
 | main         | 2         |
+| internal     | 2         |
 | generator    | 2         |
 | from         | 2         |
 | expression   | 2         |
 | element      | 2         |
 | dir          | 2         |
+| csv          | 2         |
 | count        | 2         |
 | commander    | 2         |
 | camel        | 2         |

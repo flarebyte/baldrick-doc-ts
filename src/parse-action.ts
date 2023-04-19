@@ -3,6 +3,7 @@ import {toMarkdownInternal} from './markdown-internal.js';
 import {toMarkdownVocabulary} from './markdown-vocabulary.js';
 import {type ParseActionOpts, type RunnerContext} from './model.js';
 import {createProject, parseProject} from './ts-parser.js';
+import { toCsvInternal } from './csv-internal.js';
 
 const createDocDir = async (options: ParseActionOpts) => {
 	await (options.docDirectory.length === 0 || options.docDirectory === '.'
@@ -13,6 +14,8 @@ const createDocDir = async (options: ParseActionOpts) => {
 const generateMarkdowns = async (options: ParseActionOpts) => {
 	const internalFilename
     = options.docBase.length > 0 ? `${options.docBase}_INTERNAL.md` : 'INTERNAL.md';
+	const internalCsvFilename
+    = options.docBase.length > 0 ? `${options.docBase}_internal.csv` : 'internal.csv';
 	const vocabularyFilename
     = options.docBase.length > 0
     	? `${options.docBase}_CODE_VOCABULARY.md`
@@ -21,8 +24,13 @@ const generateMarkdowns = async (options: ParseActionOpts) => {
 	project.addSourceFilesAtPaths('src/**/*{.d.ts,.ts}');
 	const moduleInfo = parseProject(options.packageName, project);
 	const internalContent = toMarkdownInternal(moduleInfo);
+	const csvInternalContent = toCsvInternal(moduleInfo);
 	if (options.feature.includes('internal')) {
 		await writeFile(internalFilename, internalContent, 'utf8');
+	}
+
+	if (options.feature.includes('internal-csv')) {
+		await writeFile(internalCsvFilename, csvInternalContent, 'utf8');
 	}
 
 	const vocabularyContent = toMarkdownVocabulary(moduleInfo);
