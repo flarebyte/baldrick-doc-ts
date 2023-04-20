@@ -22,6 +22,15 @@ model:
     related:
       - "[baldrick-zest-engine](https://github.com/flarebyte/baldrick-zest-engi\
         ne) Run tests declaratively with a few cunning plans"
+    cheatsheet:
+      - title: Generate markdown document describing the api of the library
+        example: npx baldrick-doc-ts@latest typedoc --json-source pest-spec/fixture/typedoc.json
+      - title: Generate CODE_VOCABULARY.md with ngram of the code base vocabulary
+        example: npx baldrick-doc-ts@latest parse --feature ngram
+      - title: Generate INTERNAL.md with UML diagram in Mermaid of the dependencies
+        example: npx baldrick-doc-ts@latest parse --feature internal
+      - title: Generate internal_functions.csv with all the typescript functions
+        example: npx baldrick-doc-ts@latest parse --feature functions-csv
   github:
     account: flarebyte
     name: baldrick-doc-ts
@@ -643,3 +652,12 @@ workflows:
           commands:
             - title: Normalize using the custom script
               run: sh custom-scaffolding.sh
+      readme:
+        title: Update readme
+        description: Updates readme
+        main:
+          commands:
+            - title: Create README.md
+              run: npx baldrick-whisker@latest render baldrick-broth.yaml
+                github:flarebyte:baldrick-reserve:template/ts/readme.hbs
+                README.md
