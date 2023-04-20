@@ -10,18 +10,19 @@
 
 Generation of documentation for node.js libraries written in Typescript
 
+![Hero image for baldrick-doc-ts](baldrick-doc-ts-hero-512.jpeg)
 
 Highlights:
 
-* Written in `Typescript`
-* It relies on [typedoc](https://typedoc.org/s) under the hood.
-* It can be run directly using `npx`.
-* It generate the documentation as **markdown**. This provides a more
+* Generate helpful documentation for a typescript project.
+* Produce a [markdown file](INTERNAL.md) with an UML diagram in Mermaid of all the dependencies and the relationships between them.
+* Generate API documentation as **markdown**. This provides a more
 basic documentation that the default `typedoc` but does not generate
 any html or css that would become part of the source code, and may
 raise some warnings with many linters.
 
-* It is part of the `baldrick` suite of tools, and is optimized to work alongside these.
+* Generate a markdown file with the [common vocabulary](CODE_VOCABULARY.md) used in the function names.
+* Generate a [CSV](internal_functions.csv) with the list of typescript functions from the code base.
 
 
 
